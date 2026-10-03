@@ -1,0 +1,21 @@
+{
+  "source": "runs/mu_loso_results.csv",
+  "test": "two-sided paired t-test over held-out signer accuracies",
+  "comparisons": {
+    "qca_vs_none": {
+      "t_statistic": -0.6638424395889274,
+      "p_value": 0.5430991353488561,
+      "n_pairs": 5
+    },
+    "qca_vs_mlp": {
+      "t_statistic": -0.07654794366530714,
+      "p_value": 0.9426590188997027,
+      "n_pairs": 5
+    },
+    "qca_vs_se": {
+      "t_statistic": 1.9988475942575432,
+      "p_value": 0.116269422475491,
+      "n_pairs": 5
+    }
+  }
+}

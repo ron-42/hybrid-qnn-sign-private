@@ -1,0 +1,317 @@
+{
+  "schema_version": "ai-research-writing/citation-requests-v1",
+  "entries": [
+    {
+      "key": "cerezo_2021_vqa",
+      "identifier": "doi:10.1038/s42254-021-00348-9",
+      "claim_support": [
+        {
+          "claim": "Variational quantum algorithms train parameterized circuits with classical optimizers and face trainability, accuracy, and efficiency challenges.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The publisher abstract defines VQAs and names these three challenges.",
+          "source": "https://www.nature.com/articles/s42254-021-00348-9"
+        }
+      ]
+    },
+    {
+      "key": "raubitzek_2023_applicability",
+      "identifier": "doi:10.3390/e25070992",
+      "claim_support": [
+        {
+          "claim": "Fair quantum-machine-learning comparisons require explicit classical baselines, hyperparameter treatment, and reproducible experimental settings.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The article compares quantum and classical models with randomized hyperparameter search and emphasizes transparent quantum configuration choices.",
+          "source": "https://doi.org/10.3390/e25070992"
+        }
+      ]
+    },
+    {
+      "key": "mari_2020_transfer",
+      "identifier": "doi:10.22331/q-2020-10-09-340",
+      "claim_support": [
+        {
+          "claim": "Hybrid transfer learning can use a pretrained classical network to extract image features for a final variational quantum circuit.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The journal abstract explicitly describes this paradigm and image-recognition demonstrations.",
+          "source": "https://quantum-journal.org/papers/q-2020-10-09-340/"
+        }
+      ]
+    },
+    {
+      "key": "budiutama_2024_channel",
+      "identifier": "doi:10.1103/PhysRevA.110.012447",
+      "claim_support": [
+        {
+          "claim": "Channel attention has been proposed for quantum convolutional neural networks in quantum phase classification.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The article abstract introduces QCNN channel attention and evaluates quantum phase classification.",
+          "source": "https://arxiv.org/abs/2311.02871"
+        }
+      ]
+    },
+    {
+      "key": "perez_2020_reupload",
+      "identifier": "doi:10.22331/q-2020-02-06-226",
+      "claim_support": [
+        {
+          "claim": "Data re-uploading repeatedly interleaves input encoding and trainable circuit processing to construct expressive quantum classifiers.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The journal abstract describes a sequence of data re-uploading and single-qubit processing units.",
+          "source": "https://quantum-journal.org/papers/q-2020-02-06-226/"
+        }
+      ]
+    },
+    {
+      "key": "wadhawan_2020_static",
+      "identifier": "doi:10.1007/s00521-019-04691-y",
+      "claim_support": [
+        {
+          "claim": "Deep convolutional models can recognize isolated static sign-language gestures.",
+          "relation": "background",
+          "status": "verified",
+          "evidence": "The article presents and evaluates deep convolutional models for static sign-language recognition.",
+          "source": "https://doi.org/10.1007/s00521-019-04691-y"
+        }
+      ]
+    },
+    {
+      "key": "erdogan_2024_signer",
+      "identifier": "doi:10.55730/1300-0632.4078",
+      "claim_support": [
+        {
+          "claim": "Signer-specific representations can hinder generalization to unseen signers, motivating explicit signer-independent evaluation.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The article abstract identifies signer dependence as a generalization problem and evaluates signer-independent representation learning.",
+          "source": "https://doi.org/10.55730/1300-0632.4078"
+        }
+      ]
+    },
+    {
+      "key": "hu_2018_se",
+      "identifier": "doi:10.1109/CVPR.2018.00745",
+      "claim_support": [
+        {
+          "claim": "Squeeze-and-Excitation networks recalibrate channel-wise feature responses.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The official CVPR paper describes channel interdependencies and feature recalibration.",
+          "source": "https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper"
+        }
+      ]
+    },
+    {
+      "key": "huang_2017_densenet",
+      "identifier": "doi:10.1109/CVPR.2017.243",
+      "claim_support": [
+        {
+          "claim": "DenseNet connects layers densely to promote feature propagation and reuse.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The official CVPR abstract states the connectivity pattern and feature-reuse motivation.",
+          "source": "https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.html"
+        }
+      ]
+    },
+    {
+      "key": "deng_2009_imagenet",
+      "identifier": "doi:10.1109/CVPR.2009.5206848",
+      "claim_support": [
+        {
+          "claim": "ImageNet is a large-scale hierarchically organized image database used for visual representation pretraining.",
+          "relation": "background",
+          "status": "verified",
+          "evidence": "The official paper introduces the database, scale, and hierarchy.",
+          "source": "https://ieeexplore.ieee.org/document/5206848"
+        }
+      ]
+    },
+    {
+      "key": "mcclean_2018_barren",
+      "identifier": "doi:10.1038/s41467-018-07090-4",
+      "claim_support": [
+        {
+          "claim": "Random parameterized quantum circuits can lose usable gradient signal as the number of qubits grows, so adding depth or qubits is not automatically a better model.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract states that random circuits are unsuitable for hybrid quantum-classical algorithms on more than a few qubits because gradients vanish exponentially.",
+          "source": "https://doi.org/10.1038/s41467-018-07090-4"
+        }
+      ]
+    },
+    {
+      "key": "schuld_2019_feature",
+      "identifier": "doi:10.1103/PhysRevLett.122.040504",
+      "claim_support": [
+        {
+          "claim": "Encoding classical inputs in a quantum state can be interpreted as a nonlinear feature map into a quantum Hilbert space.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract explicitly interprets encoding inputs in a quantum state as a nonlinear feature map that maps data to a quantum Hilbert space.",
+          "source": "https://doi.org/10.1103/PhysRevLett.122.040504"
+        }
+      ]
+    },
+    {
+      "key": "benedetti_2019_pqc",
+      "identifier": "doi:10.1088/2058-9565/ab4eb5",
+      "claim_support": [
+        {
+          "claim": "Parameterized quantum circuits can be used as machine-learning models inside hybrid quantum-classical systems.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract states that parameterized quantum circuits can be regarded as machine learning models and reviews their use in supervised learning.",
+          "source": "https://doi.org/10.1088/2058-9565/ab4eb5"
+        }
+      ]
+    },
+    {
+      "key": "rastgoo_2021_survey",
+      "identifier": "doi:10.1016/j.eswa.2020.113794",
+      "claim_support": [
+        {
+          "claim": "Deep-learning surveys of sign language recognition cover a range of vision-based models and note variability in hand shape, motion, and body pose.",
+          "relation": "background",
+          "status": "verified",
+          "evidence": "The abstract reviews vision-based sign-language recognition models from recent years and names variability in hand shape, motion profile, and body position.",
+          "source": "https://doi.org/10.1016/j.eswa.2020.113794"
+        }
+      ]
+    },
+    {
+      "key": "preskill_2018_nisq",
+      "identifier": "doi:10.22331/q-2018-08-06-79",
+      "claim_support": [
+        {
+          "claim": "Noise in near-term quantum devices limits the circuits that can be executed reliably, so a small quantum processor is not an automatic application advantage.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract states that noise limits reliable circuit size and that a 50-100 qubit device will not immediately transform applications.",
+          "source": "https://doi.org/10.22331/q-2018-08-06-79"
+        }
+      ]
+    },
+    {
+      "key": "mitarai_2018_qcl",
+      "identifier": "doi:10.1103/PhysRevA.98.032309",
+      "claim_support": [
+        {
+          "claim": "A shallow parameterized circuit can be trained for a classical loss by tuning circuit parameters and reading expectation values.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract describes a hybrid algorithm that learns a task by iteratively tuning parameters of a low-depth quantum circuit.",
+          "source": "https://doi.org/10.1103/PhysRevA.98.032309"
+        }
+      ]
+    },
+    {
+      "key": "cong_2019_qcnn",
+      "identifier": "doi:10.1038/s41567-019-0648-8",
+      "claim_support": [
+        {
+          "claim": "Quantum convolutional circuits have been defined for quantum many-body states, with a logarithmic number of variational parameters.",
+          "relation": "contrast",
+          "status": "verified",
+          "evidence": "The abstract introduces a QCNN for quantum many-body problems and states that it uses O(log N) variational parameters for N qubits.",
+          "source": "https://doi.org/10.1038/s41567-019-0648-8"
+        }
+      ]
+    },
+    {
+      "key": "henderson_2020_quanvolutional",
+      "identifier": "doi:10.1007/s42484-020-00012-y",
+      "claim_support": [
+        {
+          "claim": "Quanvolutional layers transform local image patches with quantum circuits before a classical network continues the recognition pipeline.",
+          "relation": "contrast",
+          "status": "verified",
+          "evidence": "The abstract introduces a quanvolutional layer that locally transforms input data with random quantum circuits, analogously to convolution.",
+          "source": "https://doi.org/10.1007/s42484-020-00012-y"
+        }
+      ]
+    },
+    {
+      "key": "havlicek_2019_feature",
+      "identifier": "doi:10.1038/s41586-019-0980-2",
+      "claim_support": [
+        {
+          "claim": "Quantum feature maps have been studied as a route to supervised classification.",
+          "relation": "background",
+          "status": "verified",
+          "evidence": "The abstract discusses quantum feature spaces and kernel methods for supervised classification problems.",
+          "source": "https://doi.org/10.1038/s41586-019-0980-2"
+        }
+      ]
+    },
+    {
+      "key": "camgoz_2018_slt",
+      "identifier": "doi:10.1109/CVPR.2018.00812",
+      "claim_support": [
+        {
+          "claim": "Continuous sign-language translation from video is a different task from isolated static gesture classification.",
+          "relation": "contrast",
+          "status": "verified",
+          "evidence": "The abstract distinguishes continuous sign sequences and spoken-language translation from treating sign recognition as isolated gesture classification.",
+          "source": "https://doi.org/10.1109/CVPR.2018.00812"
+        }
+      ]
+    },
+    {
+      "key": "bowles_2024_benchmark",
+      "identifier": "arxiv:2403.07059",
+      "claim_support": [
+        {
+          "claim": "Conclusions from simulated quantum-machine-learning benchmarks depend strongly on experimental design, including the choice of classical baselines.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract states that experimental design has a huge impact on quantum-machine-learning benchmark results and reports a systematic comparison of popular quantum models.",
+          "source": "https://arxiv.org/abs/2403.07059"
+        }
+      ]
+    },
+    {
+      "key": "bergholm_2018_pennylane",
+      "identifier": "doi:10.48550/arXiv.1811.04968",
+      "claim_support": [
+        {
+          "claim": "PennyLane computes gradients of variational quantum circuits in a form that classical optimizers can use.",
+          "relation": "software",
+          "status": "verified",
+          "evidence": "The abstract describes PennyLane as a framework whose core feature is differentiating variational quantum circuits compatibly with backpropagation.",
+          "source": "https://arxiv.org/abs/1811.04968"
+        }
+      ]
+    },
+    {
+      "key": "loshchilov_2019_adamw",
+      "identifier": "doi:10.48550/arXiv.1711.05101",
+      "claim_support": [
+        {
+          "claim": "AdamW decouples weight decay from the adaptive gradient update.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The abstract shows that L2 regularization and weight decay are not equivalent for Adam and proposes decoupling weight decay from the optimization steps.",
+          "source": "https://arxiv.org/abs/1711.05101"
+        }
+      ]
+    },
+    {
+      "key": "loshchilov_2017_sgdr",
+      "identifier": "doi:10.48550/arXiv.1608.03983",
+      "claim_support": [
+        {
+          "claim": "A cosine learning-rate schedule with warm restarts was introduced for stochastic-gradient training of deep networks.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "The paper proposes a warm-restart stochastic-gradient schedule for deep networks; the schedule used between restarts is cosine annealing. DataCite records the work as the ICLR 2017 conference paper.",
+          "source": "https://arxiv.org/abs/1608.03983"
+        }
+      ]
+    }
+  ]
+}

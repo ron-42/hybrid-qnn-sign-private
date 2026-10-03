@@ -1,0 +1,40 @@
+{
+  "schema_version": "ai-research-writing/paper-state-v1",
+  "mode": "full-paper",
+  "stage": "draft-complete",
+  "target_venue": "Venue-neutral conference draft (maximum 10 pages)",
+  "main_tex": "paper/main.tex",
+  "bibliography": "paper/references.bib",
+  "required_artifacts": [
+    "project_inventory.md",
+    "experiment_inventory.md",
+    "numeric_evidence.json",
+    "paper_story.md",
+    "claim_evidence_map.md",
+    "literature/paper_inventory.md",
+    "literature/related_work_matrix.md",
+    "literature/positioning.md",
+    "citation_verification.md",
+    "figures/figure_plan.md",
+    "reviewer_analysis.md",
+    "build_check.md"
+  ],
+  "blockers": [
+    "A specific target conference and official template have not been selected.",
+    "The external signer-held-out experiment uses one training seed."
+  ],
+  "build": {
+    "status": "passed",
+    "command": "tectonic main.tex",
+    "pdf": "paper/main.pdf",
+    "external_inputs": [],
+    "input_sha256": "a275ae229b3de603b4e1cf7b2114ddcbd8e231d5b90795e654af29e2cf232727",
+    "pdf_sha256": "c8788051ec37b42ca9ea23fd55ff0099aad2c297dc92be5803e59cd8b38c80fa",
+    "log": "paper/build-attestation.log",
+    "log_sha256": "8d9b8be2d9aec30ccebf5e19187e896b332a01c5703512c5fd1e7186d4e42210",
+    "exit_code": 0,
+    "tool_version": "Tectonic 0.16.9",
+    "attestation": "executed",
+    "ran_at": "2026-09-22T19:28:13.974982+00:00"
+  }
+}

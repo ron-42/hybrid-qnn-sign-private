@@ -1,0 +1,2633 @@
+{
+  "schema_version": "ai-research-writing/numeric-evidence-v2",
+  "entries": [
+    {
+      "value": 0.6080333333333333,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.013132529586234868,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.5906,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.017903351641522302,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6469,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.006255397669213354,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6341666666666667,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.009219725230902174,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6215999999999999,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.011607325273291846,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6049333333333333,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.014596346574856742,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6616666666666666,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.004162130864513234,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.6524666666666666,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0010598742063723029,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8639,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.004687216658103178,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8633666666666666,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0050362022728772,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8643,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.005499090833946972,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8638333333333333,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.005630571315002898,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8613333333333333,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.009308777220093559,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8606,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.009355212450821195,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8722,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.008792610533851726,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8717666666666667,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.00899129208364033,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9093333333333333,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.002400694344004139,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9093666666666667,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0022810816147900616,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9019,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.006022457969965425,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9017333333333334,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.006153318887668119,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9035666666666667,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0035303446479534174,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9035,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0038157568056678103,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9111666666666667,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.004473626418615381,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_acc_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9113,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_mean",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.004616275555033517,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "macro_f1_sample_std",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.01,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "train_fraction",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.01"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.05,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "train_fraction",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.05"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.1,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "train_fraction",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 29725.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "model": "none",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 17480.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 47205.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "model": "mlp",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 17464.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 47189.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "model": "qca",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 131072.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 160797.0,
+      "source": "runs/low_data_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "model": "se",
+          "train_fraction": "0.1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.947793679189028,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_accuracy",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.05168844052100396,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_accuracy",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9460637421992032,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_macro_f1",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.05280213787094147,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_macro_f1",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9482093663911846,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_accuracy",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9477200548602254,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_macro_f1",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 6980506.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1815.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "n_test",
+        "where": {
+          "method": "none"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9371926058437686,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_accuracy",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.051662653862565,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_accuracy",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9303957748532636,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_macro_f1",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.05432755715938159,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_macro_f1",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.947107438016529,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_accuracy",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9463465287436541,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_macro_f1",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 131072.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 7111578.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1815.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "n_test",
+        "where": {
+          "method": "se"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9454955277280859,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_accuracy",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.040223927657960734,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_accuracy",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9394970686449111,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_macro_f1",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.04451347128363606,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_macro_f1",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9487603305785124,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_accuracy",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9481729323037726,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_macro_f1",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 17480.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 6997986.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1815.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "n_test",
+        "where": {
+          "method": "mlp"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9450387596899225,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_accuracy",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.04946414328137629,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_accuracy",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9426459577260003,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_mean_macro_f1",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.04937899943326649,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "signer_sd_macro_f1",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.949862258953168,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_accuracy",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9497038169105126,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "pooled_macro_f1",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 17464.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "attention_params",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 6997970.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "trainable_params",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1815.0,
+      "source": "runs/mu_loso_summary.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "n_test",
+        "where": {
+          "method": "qca"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9538461538461539,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "none",
+          "held_out_signer": "1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9658914728682171,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "none",
+          "held_out_signer": "2"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9846153846153847,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "none",
+          "held_out_signer": "3"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9769230769230769,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "none",
+          "held_out_signer": "4"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8576923076923076,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "none",
+          "held_out_signer": "5"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9569230769230769,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "se",
+          "held_out_signer": "1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9751937984496124,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "se",
+          "held_out_signer": "2"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9538461538461539,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "se",
+          "held_out_signer": "3"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9538461538461539,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "se",
+          "held_out_signer": "4"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8461538461538461,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "se",
+          "held_out_signer": "5"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9476923076923077,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "mlp",
+          "held_out_signer": "1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9720930232558139,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "mlp",
+          "held_out_signer": "2"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9769230769230769,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "mlp",
+          "held_out_signer": "3"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9538461538461539,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "mlp",
+          "held_out_signer": "4"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8769230769230769,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "mlp",
+          "held_out_signer": "5"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9538461538461539,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "qca",
+          "held_out_signer": "1"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9751937984496124,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "qca",
+          "held_out_signer": "2"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9692307692307692,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "qca",
+          "held_out_signer": "3"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.9692307692307692,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "qca",
+          "held_out_signer": "4"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.8576923076923076,
+      "source": "runs/mu_loso_results.csv",
+      "selector": {
+        "kind": "csv",
+        "column": "test_accuracy",
+        "where": {
+          "method": "qca",
+          "held_out_signer": "5"
+        }
+      },
+      "aggregate": "identity",
+      "representations": [
+        "percent"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 1024,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/feature_dim"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 8,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/n_qubits"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 2,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/n_layers"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 17464,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/qca_attention_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 17480,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/mlp_attention_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 131072,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/se_attention_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 7.505726065047,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/qca_se_parameter_ratio"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 16,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/mlp_qca_parameter_difference"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 29,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/classes"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 87000,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 80,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/train_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 10,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/validation_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 10,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/test_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 8700,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/validation_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 8700,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/test_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 28,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/official_test_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 3,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/low_data_seeds"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 42,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/seed_1"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 43,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/seed_2"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 44,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/seed_3"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 15,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/epochs"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 32,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/batch_size"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 224,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/image_size"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.001,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/learning_rate"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.0001,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/weight_decay"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1.0,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/full_data_baseline_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1.0,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/full_data_qca_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9598,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/frozen_qca_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.971,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/frozen_se_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.9589,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/frozen_none_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1.12,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/frozen_se_qca_gap_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.6183,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/qca_v1_pilot_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.6138,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/kaggle/qca_v2_pilot_test_accuracy"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw",
+        "percent"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 2425,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/original_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1815,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/used_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 26,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/classes"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 5,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signers"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 650,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signer_1_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 645,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signer_2_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 130,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signer_3_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 130,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signer_4_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 260,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/signer_5_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 15,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/validation_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 42,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/seed"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 15,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/epochs"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 32,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/batch_size"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 224,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/image_size"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 1e-05,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/backbone_learning_rate"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.001,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/head_learning_rate"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.0001,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/weight_decay"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.05,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/significance_level"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 0.5430991353488561,
+      "source": "paper/evidence/mu_paired_tests.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/comparisons/qca_vs_none/p_value"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.00051
+    },
+    {
+      "value": 0.9426590188997027,
+      "source": "paper/evidence/mu_paired_tests.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/comparisons/qca_vs_mlp/p_value"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.00051
+    },
+    {
+      "value": 0.116269422475491,
+      "source": "paper/evidence/mu_paired_tests.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/comparisons/qca_vs_se/p_value"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.00051
+    }
+  ]
+}

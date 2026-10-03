@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+  node distance=5mm,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=8mm,
+              inner xsep=5pt, font=\footnotesize},
+  classical/.style={box, fill=blue!10, draw=blue!55!black},
+  quantum/.style={box, fill=violet!13, draw=violet!65!black},
+  gate/.style={box, fill=orange!15, draw=orange!70!black},
+  flow/.style={-{Latex[length=2mm]}, thick, draw=gray!75!black}
+]
+\node[classical] (cnn) {DenseNet121\\RGB image $\rightarrow \mathbf{x}\in\mathbb{R}^{1024}$};
+\node[classical, right=of cnn] (down) {$W_{\mathrm{down}}$\\$1024\rightarrow8$};
+\node[quantum, right=of down] (encode) {$\tanh(\cdot)\pi/2$\\$R_Y$ encoding};
+\node[quantum, right=of encode] (pqc) {8-qubit PQC\\2 entangling layers};
+\node[quantum, right=of pqc] (measure) {$\langle Z\rangle$\\8 values};
+\node[gate, right=of measure] (up) {$W_{\mathrm{up}}$ + sigmoid\\1024 gates};
+\node[classical, right=of up] (classify) {$\mathbf{x}\odot\mathbf{a}$\\29/26-way classifier};
+
+\draw[flow] (cnn) -- (down);
+\draw[flow] (down) -- (encode);
+\draw[flow] (encode) -- (pqc);
+\draw[flow] (pqc) -- (measure);
+\draw[flow] (measure) -- (up);
+\draw[flow] (up) -- (classify);
+\draw[flow] (cnn.south) to[out=-35,in=-145]
+  node[below, font=\scriptsize, text=gray!75!black]{feature bypass} (classify.south);
+\end{tikzpicture}

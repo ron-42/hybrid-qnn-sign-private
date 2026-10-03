@@ -1,0 +1,34 @@
+\begin{tikzpicture}[
+  node distance=5mm and 10mm,
+  risk/.style={draw=D55E00, fill=D55E00!10, rounded corners=2pt,
+               minimum width=28mm, minimum height=8mm, align=center,
+               font=\footnotesize},
+  fix/.style={draw=0072B2, fill=0072B2!9, rounded corners=2pt,
+              minimum width=30mm, minimum height=8mm, align=center,
+              font=\footnotesize},
+  claim/.style={draw=1F3A5F, fill=1F3A5F!12, rounded corners=2pt,
+                minimum width=30mm, minimum height=13mm, align=center,
+                font=\footnotesize\bfseries},
+  flow/.style={-{Latex[length=2mm]}, thick, draw=gray!70!black}
+]
+\definecolor{D55E00}{HTML}{D55E00}
+\definecolor{0072B2}{HTML}{0072B2}
+\definecolor{1F3A5F}{HTML}{1F3A5F}
+
+\node[risk] (sat) {Saturated split};
+\node[risk, below=of sat] (unmatched) {Unmatched controls};
+\node[risk, below=of unmatched] (pooled) {Pooled subjects};
+
+\node[fix, right=of sat] (low) {Low-data test};
+\node[fix, right=of unmatched] (matched) {Matched baselines};
+\node[fix, right=of pooled] (balanced) {Equal-signer metrics};
+
+\node[claim, right=15mm of matched] (claim) {Evidence-bounded\\claim};
+
+\draw[flow] (sat) -- (low);
+\draw[flow] (unmatched) -- (matched);
+\draw[flow] (pooled) -- (balanced);
+\draw[flow] (low.east) to[out=0,in=145] (claim.west);
+\draw[flow] (matched) -- (claim);
+\draw[flow] (balanced.east) to[out=0,in=-145] (claim.west);
+\end{tikzpicture}

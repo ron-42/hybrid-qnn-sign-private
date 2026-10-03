@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+  rung/.style={draw=blue!65!black, fill=blue!8, rounded corners=2pt,
+               minimum width=58mm, minimum height=10mm,
+               align=center, font=\footnotesize},
+  topstep/.style={draw=green!55!black, fill=green!10, rounded corners=2pt,
+                  minimum width=58mm, minimum height=10mm,
+                  align=center, font=\footnotesize\bfseries},
+  flow/.style={-{Latex[length=2mm]}, thick, draw=gray!75!black}
+]
+\node[rung] (sanity) at (0,0)
+  {\textbf{1. Saturation check}\\Full-data image split};
+\node[rung] (controlled) at (0,1.45)
+  {\textbf{2. Controlled attribution}\\Frozen low-data comparison};
+\node[topstep] (external) at (0,2.90)
+  {3. External generalization\\Unfrozen signer-held-out study};
+
+\draw[flow] (sanity.north) -- (controlled.south);
+\draw[flow] (controlled.north) -- (external.south);
+\node[font=\scriptsize, text=gray!70!black] at (0,3.70)
+  {Increasing evidential strength};
+\end{tikzpicture}
