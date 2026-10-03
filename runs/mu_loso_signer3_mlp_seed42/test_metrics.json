@@ -1,0 +1,12 @@
+{
+  "method": "mlp",
+  "held_out_signer": 3,
+  "seed": 42,
+  "best_epoch": 10,
+  "best_val_accuracy": 1.0,
+  "test_accuracy": 0.9769230769230769,
+  "macro_f1": 0.9762043512043512,
+  "attention_params": 17480,
+  "trainable_params": 6997986,
+  "n_test": 130
+}

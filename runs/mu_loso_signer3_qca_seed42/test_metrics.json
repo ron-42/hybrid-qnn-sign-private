@@ -1,0 +1,12 @@
+{
+  "method": "qca",
+  "held_out_signer": 3,
+  "seed": 42,
+  "best_epoch": 12,
+  "best_val_accuracy": 0.9960474308300395,
+  "test_accuracy": 0.9692307692307692,
+  "macro_f1": 0.965917415917416,
+  "attention_params": 17464,
+  "trainable_params": 6997970,
+  "n_test": 130
+}

@@ -1,0 +1,12 @@
+{
+  "method": "se",
+  "held_out_signer": 4,
+  "seed": 42,
+  "best_epoch": 7,
+  "best_val_accuracy": 0.9920948616600791,
+  "test_accuracy": 0.9538461538461539,
+  "macro_f1": 0.9473443223443223,
+  "attention_params": 131072,
+  "trainable_params": 7111578,
+  "n_test": 130
+}
