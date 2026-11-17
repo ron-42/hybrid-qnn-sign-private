@@ -24,6 +24,13 @@
           "status": "verified",
           "evidence": "The article compares quantum and classical models with randomized hyperparameter search and emphasizes transparent quantum configuration choices.",
           "source": "https://doi.org/10.3390/e25070992"
+        },
+        {
+          "claim": "Quantum classifiers tuned by hyperparameter search still trail modern boosting methods.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: VQC and QKE outperform Ridge and Lasso but do not match the accuracy and runtime of XGBoost, LightGBM or CatBoost; QML currently lags behind classical approaches.",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/37509939/"
         }
       ]
     },
@@ -93,84 +100,6 @@
       ]
     },
     {
-      "key": "hu_2018_se",
-      "identifier": "doi:10.1109/CVPR.2018.00745",
-      "claim_support": [
-        {
-          "claim": "Squeeze-and-Excitation networks recalibrate channel-wise feature responses.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The official CVPR paper describes channel interdependencies and feature recalibration.",
-          "source": "https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper"
-        }
-      ]
-    },
-    {
-      "key": "huang_2017_densenet",
-      "identifier": "doi:10.1109/CVPR.2017.243",
-      "claim_support": [
-        {
-          "claim": "DenseNet connects layers densely to promote feature propagation and reuse.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The official CVPR abstract states the connectivity pattern and feature-reuse motivation.",
-          "source": "https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.html"
-        }
-      ]
-    },
-    {
-      "key": "deng_2009_imagenet",
-      "identifier": "doi:10.1109/CVPR.2009.5206848",
-      "claim_support": [
-        {
-          "claim": "ImageNet is a large-scale hierarchically organized image database used for visual representation pretraining.",
-          "relation": "background",
-          "status": "verified",
-          "evidence": "The official paper introduces the database, scale, and hierarchy.",
-          "source": "https://ieeexplore.ieee.org/document/5206848"
-        }
-      ]
-    },
-    {
-      "key": "mcclean_2018_barren",
-      "identifier": "doi:10.1038/s41467-018-07090-4",
-      "claim_support": [
-        {
-          "claim": "Random parameterized quantum circuits can lose usable gradient signal as the number of qubits grows, so adding depth or qubits is not automatically a better model.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The abstract states that random circuits are unsuitable for hybrid quantum-classical algorithms on more than a few qubits because gradients vanish exponentially.",
-          "source": "https://doi.org/10.1038/s41467-018-07090-4"
-        }
-      ]
-    },
-    {
-      "key": "schuld_2019_feature",
-      "identifier": "doi:10.1103/PhysRevLett.122.040504",
-      "claim_support": [
-        {
-          "claim": "Encoding classical inputs in a quantum state can be interpreted as a nonlinear feature map into a quantum Hilbert space.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The abstract explicitly interprets encoding inputs in a quantum state as a nonlinear feature map that maps data to a quantum Hilbert space.",
-          "source": "https://doi.org/10.1103/PhysRevLett.122.040504"
-        }
-      ]
-    },
-    {
-      "key": "benedetti_2019_pqc",
-      "identifier": "doi:10.1088/2058-9565/ab4eb5",
-      "claim_support": [
-        {
-          "claim": "Parameterized quantum circuits can be used as machine-learning models inside hybrid quantum-classical systems.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The abstract states that parameterized quantum circuits can be regarded as machine learning models and reviews their use in supervised learning.",
-          "source": "https://doi.org/10.1088/2058-9565/ab4eb5"
-        }
-      ]
-    },
-    {
       "key": "rastgoo_2021_survey",
       "identifier": "doi:10.1016/j.eswa.2020.113794",
       "claim_support": [
@@ -180,45 +109,6 @@
           "status": "verified",
           "evidence": "The abstract reviews vision-based sign-language recognition models from recent years and names variability in hand shape, motion profile, and body position.",
           "source": "https://doi.org/10.1016/j.eswa.2020.113794"
-        }
-      ]
-    },
-    {
-      "key": "preskill_2018_nisq",
-      "identifier": "doi:10.22331/q-2018-08-06-79",
-      "claim_support": [
-        {
-          "claim": "Noise in near-term quantum devices limits the circuits that can be executed reliably, so a small quantum processor is not an automatic application advantage.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The abstract states that noise limits reliable circuit size and that a 50-100 qubit device will not immediately transform applications.",
-          "source": "https://doi.org/10.22331/q-2018-08-06-79"
-        }
-      ]
-    },
-    {
-      "key": "mitarai_2018_qcl",
-      "identifier": "doi:10.1103/PhysRevA.98.032309",
-      "claim_support": [
-        {
-          "claim": "A shallow parameterized circuit can be trained for a classical loss by tuning circuit parameters and reading expectation values.",
-          "relation": "direct",
-          "status": "verified",
-          "evidence": "The abstract describes a hybrid algorithm that learns a task by iteratively tuning parameters of a low-depth quantum circuit.",
-          "source": "https://doi.org/10.1103/PhysRevA.98.032309"
-        }
-      ]
-    },
-    {
-      "key": "cong_2019_qcnn",
-      "identifier": "doi:10.1038/s41567-019-0648-8",
-      "claim_support": [
-        {
-          "claim": "Quantum convolutional circuits have been defined for quantum many-body states, with a logarithmic number of variational parameters.",
-          "relation": "contrast",
-          "status": "verified",
-          "evidence": "The abstract introduces a QCNN for quantum many-body problems and states that it uses O(log N) variational parameters for N qubits.",
-          "source": "https://doi.org/10.1038/s41567-019-0648-8"
         }
       ]
     },
@@ -236,80 +126,249 @@
       ]
     },
     {
-      "key": "havlicek_2019_feature",
-      "identifier": "doi:10.1038/s41586-019-0980-2",
+      "key": "hu_2020_se",
+      "identifier": "doi:10.1109/TPAMI.2019.2913372",
       "claim_support": [
         {
-          "claim": "Quantum feature maps have been studied as a route to supervised classification.",
-          "relation": "background",
-          "status": "verified",
-          "evidence": "The abstract discusses quantum feature spaces and kernel methods for supervised classification problems.",
-          "source": "https://doi.org/10.1038/s41586-019-0980-2"
-        }
-      ]
-    },
-    {
-      "key": "camgoz_2018_slt",
-      "identifier": "doi:10.1109/CVPR.2018.00812",
-      "claim_support": [
-        {
-          "claim": "Continuous sign-language translation from video is a different task from isolated static gesture classification.",
-          "relation": "contrast",
-          "status": "verified",
-          "evidence": "The abstract distinguishes continuous sign sequences and spoken-language translation from treating sign recognition as isolated gesture classification.",
-          "source": "https://doi.org/10.1109/CVPR.2018.00812"
-        }
-      ]
-    },
-    {
-      "key": "bowles_2024_benchmark",
-      "identifier": "arxiv:2403.07059",
-      "claim_support": [
-        {
-          "claim": "Conclusions from simulated quantum-machine-learning benchmarks depend strongly on experimental design, including the choice of classical baselines.",
+          "claim": "SE recalibrates channels with a two-layer bottleneck on pooled features; the TPAMI article is the archival version of SE.",
           "relation": "direct",
           "status": "verified",
-          "evidence": "The abstract states that experimental design has a huge impact on quantum-machine-learning benchmark results and reports a systematic comparison of popular quantum models.",
-          "source": "https://arxiv.org/abs/2403.07059"
+          "evidence": "Journal version of Squeeze-and-Excitation Networks describing squeeze (global pooling) and excitation (bottleneck FC + sigmoid).",
+          "source": "https://doi.org/10.1109/TPAMI.2019.2913372"
         }
       ]
     },
     {
-      "key": "bergholm_2018_pennylane",
-      "identifier": "doi:10.48550/arXiv.1811.04968",
+      "key": "huang_2022_densenet",
+      "identifier": "doi:10.1109/TPAMI.2019.2918284",
       "claim_support": [
         {
-          "claim": "PennyLane computes gradients of variational quantum circuits in a form that classical optimizers can use.",
-          "relation": "software",
-          "status": "verified",
-          "evidence": "The abstract describes PennyLane as a framework whose core feature is differentiating variational quantum circuits compatibly with backpropagation.",
-          "source": "https://arxiv.org/abs/1811.04968"
-        }
-      ]
-    },
-    {
-      "key": "loshchilov_2019_adamw",
-      "identifier": "doi:10.48550/arXiv.1711.05101",
-      "claim_support": [
-        {
-          "claim": "AdamW decouples weight decay from the adaptive gradient update.",
+          "claim": "DenseNet121 is the densely connected convolutional backbone used for feature extraction.",
           "relation": "direct",
           "status": "verified",
-          "evidence": "The abstract shows that L2 regularization and weight decay are not equivalent for Adam and proposes decoupling weight decay from the optimization steps.",
-          "source": "https://arxiv.org/abs/1711.05101"
+          "evidence": "TPAMI journal version of DenseNet presenting dense connectivity architectures including DenseNet-121.",
+          "source": "https://doi.org/10.1109/TPAMI.2019.2918284"
         }
       ]
     },
     {
-      "key": "loshchilov_2017_sgdr",
-      "identifier": "doi:10.48550/arXiv.1608.03983",
+      "key": "cerezo_2021_barren",
+      "identifier": "doi:10.1038/s41467-021-21728-w",
       "claim_support": [
         {
-          "claim": "A cosine learning-rate schedule with warm restarts was introduced for stochastic-gradient training of deep networks.",
+          "claim": "Barren plateaus depend on cost-function locality and system size in shallow parametrised circuits.",
           "relation": "direct",
           "status": "verified",
-          "evidence": "The paper proposes a warm-restart stochastic-gradient schedule for deep networks; the schedule used between restarts is cosine annealing. DataCite records the work as the ICLR 2017 conference paper.",
-          "source": "https://arxiv.org/abs/1608.03983"
+          "evidence": "Title and abstract establish cost-function-dependent barren plateaus.",
+          "source": "https://doi.org/10.1038/s41467-021-21728-w"
+        }
+      ]
+    },
+    {
+      "key": "schuld_2021_encoding",
+      "identifier": "doi:10.1103/PhysRevA.103.032430",
+      "claim_support": [
+        {
+          "claim": "The data-encoding strategy determines the frequency spectrum accessible to a variational quantum model.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract shows that variational models are partial Fourier series whose frequencies are fixed by the encoding gates; repetition enlarges the spectrum.",
+          "source": "https://doi.org/10.1103/PhysRevA.103.032430"
+        }
+      ]
+    },
+    {
+      "key": "bharti_2022_nisq",
+      "identifier": "doi:10.1103/RevModPhys.94.015004",
+      "claim_support": [
+        {
+          "claim": "Variational algorithms are the main approach on NISQ devices, and hardware noise constrains them.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Review of NISQ algorithms centred on variational methods and noise.",
+          "source": "https://doi.org/10.1103/RevModPhys.94.015004"
+        }
+      ]
+    },
+    {
+      "key": "hur_2022_qcnn",
+      "identifier": "doi:10.1007/s42484-021-00061-x",
+      "claim_support": [
+        {
+          "claim": "Quantum convolutional networks have been applied to classical data after classical dimensionality reduction.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract benchmarks QCNN on MNIST/Fashion-MNIST with classical reduction.",
+          "source": "https://doi.org/10.1007/s42484-021-00061-x"
+        }
+      ]
+    },
+    {
+      "key": "huang_2021_data",
+      "identifier": "doi:10.1038/s41467-021-22539-9",
+      "claim_support": [
+        {
+          "claim": "Classical learners with access to data can match quantum models on many tasks.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: classical ML models trained on data can be competitive with quantum models; proposes projected quantum kernels.",
+          "source": "https://doi.org/10.1038/s41467-021-22539-9"
+        }
+      ]
+    },
+    {
+      "key": "camgoz_2020_slt",
+      "identifier": "doi:10.1109/CVPR42600.2020.01004",
+      "claim_support": [
+        {
+          "claim": "Transformers have been used for joint continuous sign language recognition and translation.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Title and abstract.",
+          "source": "https://doi.org/10.1109/CVPR42600.2020.01004"
+        }
+      ]
+    },
+    {
+      "key": "abbas_2021_power",
+      "identifier": "doi:10.1038/s43588-021-00084-1",
+      "claim_support": [
+        {
+          "claim": "Effective dimension relates model capacity to trainable parameters for quantum neural networks.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract introduces effective dimension as capacity measure for QNNs; the measure is bounded by parameter count by construction.",
+          "source": "https://doi.org/10.1038/s43588-021-00084-1"
+        }
+      ]
+    },
+    {
+      "key": "caro_2022_generalization",
+      "identifier": "doi:10.1038/s41467-022-32550-3",
+      "claim_support": [
+        {
+          "claim": "Generalisation error of QML models is bounded in terms of the number of trainable gates.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: generalisation error scales as sqrt(T/N) for T trainable gates and N training points.",
+          "source": "https://doi.org/10.1038/s41467-022-32550-3"
+        }
+      ]
+    },
+    {
+      "key": "schuld_2022_advantage",
+      "identifier": "doi:10.1103/PRXQuantum.3.030101",
+      "claim_support": [
+        {
+          "claim": "Quantum ML research should look beyond chasing quantum-advantage claims.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Perspective argues advantage is not the right sole goal.",
+          "source": "https://doi.org/10.1103/PRXQuantum.3.030101"
+        }
+      ]
+    },
+    {
+      "key": "wang_2021_noise",
+      "identifier": "doi:10.1038/s41467-021-27045-6",
+      "claim_support": [
+        {
+          "claim": "Hardware noise can induce barren plateaus and flatten the training landscape.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Title and abstract.",
+          "source": "https://doi.org/10.1038/s41467-021-27045-6"
+        }
+      ]
+    },
+    {
+      "key": "wang_2020_eca",
+      "identifier": "doi:10.1109/CVPR42600.2020.01155",
+      "claim_support": [
+        {
+          "claim": "ECA replaces the SE bottleneck with a local 1D convolution and achieves comparable or better accuracy with far fewer parameters.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract reports efficient channel attention with few parameters and performance gains over SE-style counterparts.",
+          "source": "https://doi.org/10.1109/CVPR42600.2020.01155"
+        }
+      ]
+    },
+    {
+      "key": "guo_2022_attention",
+      "identifier": "doi:10.1007/s41095-022-0271-y",
+      "claim_support": [
+        {
+          "claim": "Survey of attention mechanisms, including channel attention, in computer vision.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Survey title and taxonomy include channel attention (SE, ECA).",
+          "source": "https://doi.org/10.1007/s41095-022-0271-y"
+        }
+      ]
+    },
+    {
+      "key": "liu_2021_hqcnn",
+      "identifier": "doi:10.1007/s11433-021-1734-3",
+      "claim_support": [
+        {
+          "claim": "Hybrid quantum-classical convolutional networks place trainable circuits inside classical CNN pipelines.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Title and abstract.",
+          "source": "https://doi.org/10.1007/s11433-021-1734-3"
+        }
+      ]
+    },
+    {
+      "key": "alsharif_2023_asl",
+      "identifier": "doi:10.3390/s23187970",
+      "claim_support": [
+        {
+          "claim": "CNNs reach about 99.98% accuracy on the 87,000-image Kaggle ASL Alphabet set.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: ResNet-50 99.98% on over 87,000 ASL alphabet images; AlexNet, ConvNeXt, EfficientNet, ViT compared.",
+          "source": "https://doi.org/10.3390/s23187970"
+        }
+      ]
+    },
+    {
+      "key": "long_2025_hqcqcnn",
+      "identifier": "doi:10.1038/s41598-025-13417-1",
+      "claim_support": [
+        {
+          "claim": "Recent hybrid quantum-classical-quantum CNN designs for image classification.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Title and abstract.",
+          "source": "https://doi.org/10.1038/s41598-025-13417-1"
+        }
+      ]
+    },
+    {
+      "key": "bouthillier_2021_variance",
+      "identifier": "arxiv:2103.03098",
+      "claim_support": [
+        {
+          "claim": "Data sampling and initialisation produce benchmark variance that can change method rankings.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: variance due to data sampling, parameter initialisation, and hyperparameters markedly impacts ML benchmarks.",
+          "source": "https://arxiv.org/abs/2103.03098"
+        }
+      ]
+    },
+    {
+      "key": "sahoo_2022_mu",
+      "identifier": "doi:10.3390/s22030706",
+      "claim_support": [
+        {
+          "claim": "Static hand gestures on the Massey University (MU) ASL dataset have been evaluated with leave-one-subject-out validation; signer independence matters for real use.",
+          "relation": "direct",
+          "status": "verified",
+          "evidence": "Abstract: fine-tuned CNN with score fusion evaluated with leave-one-subject-out CV on two benchmark static hand gesture datasets (the full text names the Massey University dataset); aims at a user-independent interface.",
+          "source": "https://doi.org/10.3390/s22030706"
         }
       ]
     }

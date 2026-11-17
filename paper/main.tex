@@ -5,9 +5,10 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage[raggedright]{titlesec}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{placeins}
-\usepackage{siunitx}
+\usepackage{enumitem}
 \usepackage[table]{xcolor}
 \usepackage{tikz}
 \usepackage{url}
@@ -17,473 +18,516 @@
 \newcommand{\QCA}{QCA}
 \newcommand{\vect}[1]{\mathbf{#1}}
 \setlength{\columnsep}{0.22in}
+% Columns end where the text ends (no stretched gaps), and every paragraph
+% gets the same small gap.
+\raggedbottom
+\setlength{\parskip}{4pt plus 1pt}
 
 \title{Compact Quantum Channel Attention for Static ASL Recognition:\\
 A Controlled Study with Parameter-Matched Baselines}
-\author{}
+\author{\normalsize
+\begin{tabular}[t]{c}
+Ronak Bhalgami\\
+CSPIT, Charotar University\\
+of Science and Technology\\
+\href{mailto:ronak42.b@gmail.com}{ronak42.b@gmail.com}
+\end{tabular}\hspace{1.5em}%
+\begin{tabular}[t]{c}
+Dr.~Deep Kothadiya\\
+SCIT, Symbiosis\\
+International University\\
+\href{mailto:deep@scit.edu}{deep@scit.edu}
+\end{tabular}\hspace{1.5em}%
+\begin{tabular}[t]{c}
+Dr.~Nikita Bhatt\\
+CSPIT, Charotar University\\
+of Science and Technology\\
+\href{mailto:nikitabhatt.ce@charusat.ac.in}{nikitabhatt.ce@charusat.ac.in}
+\end{tabular}%
+}
 \date{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Hybrid quantum--classical vision models are easy to misread. A change in
-accuracy can come from a pretrained backbone, from an added projection, or
-from the parameter budget. The proposed method in this study is quantum
-channel attention (\QCA{}). Pooled DenseNet121 features pass through an
-eight-qubit variational bottleneck and return as channel gates. The block
-contains 17,464 attention parameters. Squeeze-and-excitation (SE) at the same
-site contains 131,072, a factor of $7.51$, and a classical MLP with the same
-projection widths contains 17,480. With the backbone frozen, SE records the
-highest three-seed mean accuracy at 1\%, 5\%, and 10\% of the Kaggle ASL
-Alphabet training split. At 10\% the means are 91.12\% (SE), 90.93\% (MLP),
-90.36\% (\QCA{}), and 90.19\% (no attention). The primary external test
-unfreezes every DenseNet layer and holds out each of five MU HandImages
-signers on 1,815 A--Z images. Equal-signer accuracy is 94.78\% without
-attention, 94.55\% for the MLP, 94.50\% for proposed \QCA{}, and 93.72\% for
-SE. Proposed \QCA{} reaches the highest pooled accuracy, 94.99\%, yet paired
-signer-level tests do not separate it from the controls. The measurements
-establish a compact proposed gate. A predictive quantum advantage is not
-among the results.
+Hybrid quantum-classical models often report good accuracy on image tasks,
+but it is rarely clear whether the quantum part is responsible. This paper
+proposes QCA-DenseNet, a static American Sign Language (ASL) recognition
+pipeline in which an eight-qubit variational circuit acts as a
+channel-attention gate on DenseNet121 features. The quantum channel attention
+(\QCA{}) gate has 17,464 parameters, 7.51 times fewer than a
+squeeze-and-excitation (SE) block. The pipeline is tested on 1,815 MU
+HandImages images by holding out one of five signers at a time, and a
+frozen-backbone ablation uses small parts of the Kaggle ASL Alphabet data. On
+unseen signers, QCA-DenseNet reaches 94.50\% mean accuracy, above SE
+(93.72\%) and within 0.28 points of the best model. A matched classical MLP
+and a model without attention perform about the same, and no difference is
+significant. \QCA{} gives a much smaller attention gate without a detectable
+loss in accuracy, but no quantum advantage.
 \end{abstract}
+
+\noindent\textbf{Keywords:} quantum machine learning; variational quantum
+circuits; channel attention; sign language recognition.
 
 \section{Introduction}
 \label{sec:intro}
 
-Static ASL alphabet recognition assigns one class label to a single hand
-image. Convolutional networks already handle that problem when the test
-photographs resemble the training photographs
-\citep{wadhawan_2020_static,rastgoo_2021_survey}. A high score on a random
-image split is a weak promise about a new person. Hand shape, camera, and
-pose move with the signer, and continuous sign translation raises a further
-linguistic problem that isolated alphabet frames do not contain
-\citep{erdogan_2024_signer,camgoz_2018_slt}.
+Fingerspelling is used to spell names and other words letter by letter, and
+the recognition of static handshapes is a common starting point for
+automatic sign language recognition \citep{rastgoo_2021_survey,wadhawan_2020_static}.
+On the popular Kaggle ASL Alphabet dataset, convolutional networks already
+reach more than 99.9\% test accuracy \citep{alsharif_2023_asl}. Such
+results come from random image splits, where nearly identical frames of the
+same person and background appear in both the training and the test set. A
+harder and more useful test is a person that the model has never seen,
+because hand size, skin tone, and camera setup change from one signer to the
+next \citep{erdogan_2024_signer,sahoo_2022_mu}.
 
-A variational circuit adds a second ambiguity. A classical optimizer can
-train the circuit after a pretrained network has compressed the image
-\citep{cerezo_2021_vqa,mari_2020_transfer,benedetti_2019_pqc}. If the hybrid
-model then scores well, the credit might belong to the pretrained features,
-to the extra projection, to a larger parameter budget, or to the circuit.
-Classical simulations of quantum models are sensitive to exactly that choice
-of baseline \citep{bowles_2024_benchmark,raubitzek_2023_applicability}.
+Variational quantum algorithms train a parameterised circuit with a
+classical optimiser, and they are the main way to use present-day noisy
+quantum devices for learning \citep{cerezo_2021_vqa,bharti_2022_nisq}. In
+hybrid transfer learning, a pretrained convolutional network first
+compresses the image and a small circuit then processes the features
+\citep{mari_2020_transfer}. Several hybrid vision models of this kind report
+good accuracy \citep{liu_2021_hqcnn,long_2025_hqcqcnn}. The difficulty is
+attribution. A high score may come from the pretrained features, from the
+classical layers around the circuit, or from a larger number of parameters.
+Raubitzek and Mallinger found that quantum classifiers tuned by
+hyperparameter search still trail modern boosting methods
+\citep{raubitzek_2023_applicability}, and Schuld and Killoran argue that
+advantage should not be the field's only goal \citep{schuld_2022_advantage}.
 
-Three shortcuts show up often enough to plan for them in advance. An easy
-split can sit near the ceiling for every head, so the attention block never
-gets a chance to matter. A quantum block can look helpful only because it
-contains more parameters than the classical head it replaces. A pooled score
-can follow the signer who contributed the most images. Figure~\ref{fig:evaluation-logic}
-pairs each shortcut with the control used later: a low-data cut of the
-training split, a parameter-matched MLP beside the larger SE block, and an
-equal-signer average.
+Channel attention is a convenient place to test a circuit under fair
+conditions. A squeeze-and-excitation (SE) block reweights feature channels
+through a small bottleneck network \citep{hu_2020_se}, and later designs
+show that such reweighting can be done with far fewer parameters
+\citep{wang_2020_eca,guo_2022_attention}. The size of an SE block grows with
+the number of channels, while the trainable weights of a variational circuit
+grow only with the number of qubits and layers. A gate built around a small
+circuit is therefore much smaller than SE. Two questions follow. Does such a
+compact gate hold on to the accuracy of SE when the test signer is new, and
+if it does, is the credit due to the circuit or to the classical layers
+wrapped around it?
 
-\begin{figure*}[t]
-\centering
-\resizebox{0.82\textwidth}{!}{\input{figures/fair_evaluation.tex}}
-\caption{Three attribution risks and the control paired with each risk.}
-\label{fig:evaluation-logic}
-\end{figure*}
-
-The proposed method is \QCA{}, an eight-qubit channel gate on DenseNet121
-\citep{huang_2017_densenet}. The module compresses 1,024 pooled channels to
-eight bounded rotation angles, mixes those qubits with two entangling layers,
-and expands eight Pauli-$Z$ measurements into sigmoid channel weights. SE
-remains in the study as a higher-capacity classical gate
-\citep{hu_2018_se}, not as the proposed model. The matched MLP copies the
-\QCA{} projection sizes and drops the circuit. A head with no attention is
-the third control.
-
-The study contributes three things, and the results section is where they
-are checked.
-\begin{itemize}
-  \item A reproducible eight-qubit channel gate with 17,464 attention
-  parameters and an explicit hand-off between the circuit simulator and the
-  tensor device.
-  \item A four-way comparison, at one insertion point, against no attention,
-  SE, and a 17,480-parameter MLP, under shared data and a shared optimizer.
-  \item A three-seed low-data ablation and a five-fold, fully unfrozen
-  signer-held-out test. Together they show that the parameter reduction is
-  real and that a reliable accuracy gain over the controls is not.
+This paper answers both questions with one proposed pipeline, QCA-DenseNet,
+and three reference modules that remove one part at a time: an SE block with
+more capacity, a classical MLP with the same size as \QCA{}, and a model
+with no attention. The main test trains every DenseNet121 layer and holds
+out one signer at a time. A frozen-backbone test with little training data
+then looks at the attention head alone. The contributions are listed below.
+% The fil glue spreads any space left at the column bottom evenly above and
+% between C1 to C3 (8pt matches parskip + topsep above the list).
+\vspace{0pt plus 1fil}
+\begin{itemize}[itemsep=8pt plus 1fil, topsep=4pt, parsep=0pt, partopsep=0pt]
+  \item C1: An eight-qubit, two-layer variational channel gate that needs
+  17,464 attention parameters, 7.51 times fewer than SE
+  (Section~\ref{sec:method}, checked in Section~\ref{sec:res-params}).
+  \item C2: Under leave-one-signer-out testing with full fine-tuning,
+  QCA-DenseNet stays within 0.28 points of the best model and scores above
+  SE, with no significant paired difference (Section~\ref{sec:res-mu}).
+  \item C3: A matched MLP, a model without attention, signer-level tests,
+  and a three-seed frozen test show that neither the circuit nor the
+  bottleneck adds measurable accuracy. The accuracy comes from the
+  fine-tuned backbone (Sections~\ref{sec:res-attr} and~\ref{sec:res-frozen}).
 \end{itemize}
 
 \section{Related Work}
 \label{sec:related}
 
-Variational algorithms train a parameterized circuit with a classical
-optimizer. Accuracy, trainability, and efficiency are still open for that
-family \citep{cerezo_2021_vqa,benedetti_2019_pqc}. Random circuits in
-particular can lose gradient signal as the qubit count grows
-\citep{mcclean_2018_barren}. Mitarai et al.\ showed that a shallow circuit
-can still be fitted by tuning its parameters against expectation values
-\citep{mitarai_2018_qcl}. Mari et al.\ carry the same idea into images: a
-pretrained classical network extracts features, and a terminal circuit
-produces the class decision \citep{mari_2020_transfer}. \QCA{} keeps the
-pretrained extractor. The circuit does a different job. Eight measurements
-become channel gates, and the class decision stays with a linear head.
-Writing classical inputs into circuit angles is the feature-map step
-discussed by Schuld and Killoran and, for kernel classifiers, by
-Havl\'{i}\v{c}ek et al.\ \citep{schuld_2019_feature,havlicek_2019_feature}.
-Those papers motivate the encoding. They do not forecast an ASL gain.
+\subsection{Static Sign Recognition}
 
-Other quantum vision designs answer different questions. Henderson et al.\
-apply small circuits to local image patches and then continue with a
-classical network \citep{henderson_2020_quanvolutional}. Cong et al.\ define
-a quantum convolution for many-body quantum states, using a logarithmic
-number of variational parameters in the number of qubits
-\citep{cong_2019_qcnn}. Budiutama et al.\ place channel attention inside a
-quantum convolutional network and evaluate quantum phase recognition
-\citep{budiutama_2024_channel}. None of those settings is a gate on pooled
-RGB features from a classical backbone, so their reported gains do not
-transfer as numbers. Data re-uploading repeats the input encoding between
-trainable blocks and can enlarge the set of functions a quantum classifier
-represents \citep{perez_2020_reupload}. One fixed-budget re-uploading variant
-appears later as a pilot. Greater expressivity is not treated as evidence
-that the ASL head will improve.
+Deep convolutional networks recognise isolated static signs with high
+accuracy when the training and test images come from the same collection
+\citep{wadhawan_2020_static}. Alsharif et al.\ compared AlexNet, ConvNeXt,
+EfficientNet, ResNet-50, and a vision transformer on the 87,000-image Kaggle
+ASL Alphabet set and reported 99.98\% accuracy for ResNet-50
+\citep{alsharif_2023_asl}. At that level there is little room left to rank
+new modules. A survey by Rastgoo et al.\ covers handshape, motion, and
+multimodal methods \citep{rastgoo_2021_survey}, and Camgoz et al.\ used
+transformers to recognise and translate continuous signing from video
+\citep{camgoz_2020_slt}. Those video tasks contain timing and language
+structure that single alphabet frames do not have. Erdo\u{g}an and
+Bayta\c{s} showed that the identity of the signer is a separate source of
+error \citep{erdogan_2024_signer}, and Sahoo et al.\ tested static hand
+gestures on the MU dataset with leave-one-subject-out validation
+\citep{sahoo_2022_mu}. The present study follows the same practice.
 
-On the classical side, SE recalibrates channels with a bottleneck MLP on
-pooled features \citep{hu_2018_se}. That block is the high-capacity control.
-A second control keeps the \QCA{} projection widths and removes the circuit,
-which is the comparison that quantum-versus-classical benchmarks are prone
-to skip \citep{bowles_2024_benchmark,raubitzek_2023_applicability}. Deep
-models already recognize isolated static signs
-\citep{wadhawan_2020_static}. Recent surveys cover a wide range of
-hand-shape and motion pipelines \citep{rastgoo_2021_survey}. Signer identity
-is a separate failure mode and needs an explicit held-out person
-\citep{erdogan_2024_signer}. Video-to-text sign translation
-\citep{camgoz_2018_slt} lies outside the static alphabet task studied here.
+\subsection{Hybrid Quantum-Classical Vision Models}
 
-\section{Proposed Method}
+Variational circuits are trained by classical optimisers that use measured
+expectation values \citep{cerezo_2021_vqa}. Mari et al.\ joined a pretrained
+classical network with a final circuit for image classification
+\citep{mari_2020_transfer}. Quanvolutional networks apply small random
+circuits to image patches \citep{henderson_2020_quanvolutional}, and later
+designs place trainable circuits inside or after classical feature
+extractors \citep{liu_2021_hqcnn,hur_2022_qcnn,long_2025_hqcqcnn}. The
+design with the closest name is the channel attention of Budiutama et al.,
+but there the attention acts on quantum states inside a quantum
+convolutional network that recognises quantum phases
+\citep{budiutama_2024_channel}. In \QCA{} the input is classical throughout:
+the circuit receives eight angles computed from the pooled channels of an
+ordinary image backbone, and its output only rescales those channels.
+
+Theory gives reasons to expect little from a circuit this small. Schuld et
+al.\ showed that such models are partial Fourier series whose frequencies
+are fixed by the encoding gates, so a single $R_Y$ encoding per input yields
+only a first-degree series in that input \citep{schuld_2021_encoding};
+repeating the encoding between layers, as in data re-uploading, widens the
+spectrum \citep{schuld_2021_encoding,perez_2020_reupload}. Capacity and
+generalisation bounds tie what these models can learn to the number of
+trainable gates \citep{abbas_2021_power,caro_2022_generalization}, and
+Huang et al.\ found that classical learners given access to the same data
+can often match quantum models \citep{huang_2021_data}. Trainability is a
+separate problem. Gradients can vanish as circuits grow or when the cost
+function is global \citep{cerezo_2021_barren}, and hardware noise can
+flatten them in the same way \citep{wang_2021_noise}.
+
+\subsection{Channel Attention and Fair Comparison}
+
+Hu et al.\ built SE as a two-layer bottleneck that squeezes each channel to
+its global average and then rescales the channels with sigmoid weights
+\citep{hu_2020_se}. ECA-Net replaces the bottleneck with a one-dimensional
+convolution across neighbouring channels and reports accuracy similar to or
+better than SE with only a handful of parameters \citep{wang_2020_eca}. Guo
+et al.\ survey these and many other attention mechanisms used in vision
+\citep{guo_2022_attention}. On the quantum side, Raubitzek and Mallinger
+ask that settings be stated clearly and that classical baselines be
+comparable \citep{raubitzek_2023_applicability}, and Schuld and Killoran
+suggest that the field would learn more by asking where circuits help than
+by searching for an advantage \citep{schuld_2022_advantage}. A broader
+warning comes from Bouthillier et al., who showed that the data sample and
+the random seed alone can reorder methods in a benchmark
+\citep{bouthillier_2021_variance}. The matched MLP in this study answers the
+call for comparable baselines, and the repeated seeds and per-signer tests
+answer the variance problem.
+
+\section{Proposed QCA-DenseNet}
 \label{sec:method}
 
-DenseNet121 \citep{huang_2017_densenet}, initialized from ImageNet
-\citep{deng_2009_imagenet}, maps each input image to a pooled vector
-$\vect{x}\in\mathbb{R}^{1024}$. An attention module returns
-$\vect{a}\in(0,1)^{1024}$. The classifier receives
-$\vect{x}'=\vect{x}\odot\vect{a}$. Proposed \QCA{} is the module that
-builds $\vect{a}$. The no-attention control passes $\vect{x}$ straight to
-the same classifier.
+\subsection{Pipeline Overview}
 
-The gate has a short path. A linear map reduces 1,024 channels to eight
-angles. Two entangling layers mix the eight qubits. Pauli-$Z$ measurements
-return eight numbers, and a second linear map expands them into 1,024
-sigmoid gates. The pooled features skip around the circuit and are only
-rescaled, which keeps the backbone representation available to the
-classifier. Figure~\ref{fig:qca-overview} draws that path. Classical stages
-are marked separately from the circuit.
+Figure~\ref{fig:pipeline}(a) follows one image through the pipeline.
+DenseNet121 \citep{huang_2022_densenet}, initialised with ImageNet weights,
+turns a $224\times224$ RGB hand image into feature maps, and global average
+pooling reduces these to a vector $\vect{x}\in\mathbb{R}^{1024}$. The \QCA{}
+gate reads $\vect{x}$ and returns one weight per channel,
+$\vect{a}\in(0,1)^{1024}$, and the linear classifier sees only the product
+$\vect{x}'=\vect{x}\odot\vect{a}$. In the main protocol the backbone, gate
+and classifier are trained together with a cross-entropy loss; the ablation
+in Section~\ref{sec:ablation} freezes the backbone. Since every weight lies
+between 0 and 1, the gate can damp a channel but cannot amplify it or create
+a new feature. Inside the gate (Figure~\ref{fig:pipeline}(b)), a classical
+layer first compresses $\vect{x}$ to eight rotation angles. An eight-qubit
+circuit with two entangling layers acts on these angles, and a second
+classical layer expands the eight measured values back into 1,024 sigmoid
+gates.
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
-\resizebox{0.98\textwidth}{!}{\input{figures/qca_overview.tex}}
-\caption{Proposed QCA gate on pooled DenseNet121 features.}
-\label{fig:qca-overview}
+\resizebox{0.97\textwidth}{!}{\input{figures/qca_pipeline.tex}}
+\caption{Proposed QCA-DenseNet pipeline (a) and the internal structure of the QCA gate (b).}
+\label{fig:pipeline}
 \end{figure*}
 
-The down-projection is bounded before it enters the circuit,
-\begin{equation}
-  \vect{z} = \tanh(W_d\vect{x}+\vect{b}_d)\frac{\pi}{2},
-\end{equation}
-so each coordinate lies in $(-\pi/2,\pi/2)$. That bounded encoding is the
-concrete feature map used here \citep{schuld_2019_feature}. Eight $R_Y$
-rotations load $\vect{z}$. Two layers of strongly entangling gates then mix
-the register. The simulator returns
-\begin{equation}
-  q_i = \langle \psi(\vect{z},\vect{\theta})|Z_i|
-  \psi(\vect{z},\vect{\theta})\rangle,\quad i=1,\ldots,8,
-\end{equation}
-and the up-projection is $\vect{a}=\sigma(W_u\vect{q}+\vect{b}_u)$. The
-circuit is executed with PennyLane's \texttt{default.qubit} simulator, whose
-gradients are available to a classical optimizer
-\citep{bergholm_2018_pennylane,mitarai_2018_qcl}. The call runs on CPU. The
-eight measurements move back to the accelerator for the up-projection. That
-hand-off is required by the software stack. It is not a timing result, and
-it is not evidence of a hardware advantage.
+\subsection{Quantum Channel Attention Gate}
 
-The four heads share $\vect{x}$ and share the linear classifier. Only the
-channel map changes. No attention is the identity. The matched MLP keeps the
-$1024\rightarrow8$ and $8\rightarrow1024$ maps, replaces the circuit with a
-bias-free $8\rightarrow8$ layer, and applies $\tanh$ on both sides of that
-layer. SE uses reduction 16, a ReLU bottleneck, and sigmoid gates
-\citep{hu_2018_se}. \QCA{} is the proposed map.
-Figure~\ref{fig:controls} isolates that single difference. The matched MLP
-has 17,480 attention parameters, sixteen more than \QCA{}. SE has 131,072.
-The counts are tabulated with the results, where they are part of the claim
-being tested.
+The reduced features are first bounded,
+\begin{equation}
+  \vect{z} = \frac{\pi}{2}\tanh\!\left(W_d\vect{x}+\vect{b}_d\right),
+  \qquad W_d\in\mathbb{R}^{8\times1024},
+  \label{eq:encode}
+\end{equation}
+so that every angle lies in $(-\pi/2,\pi/2)$. Each angle sets one $R_Y$
+rotation, which gives the state
+\begin{equation}
+  |\psi(\vect{z},\boldsymbol{\theta})\rangle =
+  U_2(\boldsymbol{\theta}_2)\,U_1(\boldsymbol{\theta}_1)
+  \bigotimes_{i=1}^{8} R_Y(z_i)\,|0\rangle^{\otimes 8}.
+  \label{eq:state}
+\end{equation}
+Each $U_\ell$ is a strongly entangling layer. It applies a general
+three-angle rotation to every qubit and then a cyclic pattern of CNOT gates,
+whose range grows with the layer number. Following Schuld et al., this
+encoding fixes the frequencies that the circuit can express
+\citep{schuld_2021_encoding}. The gate output is
+\begin{equation}
+  q_i = \langle\psi|Z_i|\psi\rangle,\qquad
+  \vect{a} = \sigma\!\left(W_u\vect{q}+\vect{b}_u\right),
+  \label{eq:gate}
+\end{equation}
+with $W_u\in\mathbb{R}^{1024\times8}$. The down layer has 8,200 parameters,
+the circuit has 48 angles ($2\times8\times3$), and the up layer has 9,216,
+for a total of 17,464. The circuit is simulated exactly with the PennyLane
+\texttt{default.qubit} device and trained by backpropagation. The simulation
+runs on the CPU, and the eight measured values are then moved back to the
+accelerator.
 
-\begin{figure*}[t]
+\subsection{Reference Modules}
+
+Three reference modules take the place of the \QCA{} gate, while the
+backbone, classifier and training schedule stay the same. The \emph{matched
+MLP} is \QCA{} with the circuit cut out: both projections remain, and a
+bias-free $8\times8$ layer between two $\tanh$ functions stands in for the
+circuit, so the two differ only in their eight-unit core. \emph{SE} follows
+Hu et al.\ \citep{hu_2020_se} with bias-free layers, a reduction ratio of
+16, a ReLU between the layers and sigmoid outputs. With \emph{no attention},
+$\vect{x}$ goes directly to the classifier. Table~\ref{tab:parameters}
+gives the parameter counts; the frozen column includes the 29-class Kaggle
+classifier, and the full column refers to the 26-class MU model with every
+layer trainable.
+
+\input{tables/parameters.tex}
+
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Datasets}
+
+Kaggle's ASL Alphabet collection \citep{alsharif_2023_asl} holds 87,000
+images in 29 classes, the 26 letters plus \emph{del}, \emph{nothing} and
+\emph{space}. A stratified 80/10/10 split with seed 42
+gives 8,700 validation and 8,700 test images. The separate 28-image test
+folder is not used. The public mirror of the MU HandImages ASL dataset
+\citep{sahoo_2022_mu} has 2,515 images of 36 signs from five people. Only the 1,815 images of the
+letters A to Z are kept, which gives a 26-class task. The five signers
+contribute 650, 645, 130, 130, and 260 images. Horizontal flips are not
+used for augmentation, because a flip changes the hand used for the sign.
+
+Figure~\ref{fig:samples} shows six letters from both datasets. These are
+the letters that the model confuses most often in Section~\ref{sec:res-mu}.
+The Kaggle images share one indoor background and similar lighting, while
+the MU images are cropped hands on a black background from different
+people. A model that depends on the background or on one person's hand would
+fail on the MU test, which is the concern raised by Erdo\u{g}an and
+Bayta\c{s} \citep{erdogan_2024_signer}. In the pairs A/T and M/N only the
+thumb position changes, and V and W differ by one raised finger.
+
+\begin{figure*}[!t]
 \centering
-\resizebox{0.82\textwidth}{!}{\input{figures/control_comparison.tex}}
-\caption{Shared features and classifier. QCA is the proposed channel map.}
-\label{fig:controls}
+\includegraphics[width=0.92\textwidth]{figures/dataset_samples.pdf}
+\caption{Letters A, T, M, N, V, and W from Kaggle (top) and from different MU signers (bottom).}
+\label{fig:samples}
 \end{figure*}
 
-\section{Experimental Protocol}
-\label{sec:protocol}
+\subsection{Main Protocol: Signer-Held-Out Testing}
 
-Two protocols answer two questions. The frozen Kaggle runs ask whether the
-head helps when the backbone cannot adapt. The MU runs train every DenseNet
-layer and ask whether the full model holds up on a signer who was absent
-from training. The same optimizer and epoch budget are used for every
-method, so a gap is harder to dismiss as a tuning accident
-\citep{raubitzek_2023_applicability,bowles_2024_benchmark}.
+Each of the five folds holds out one MU signer for testing. From the other
+four signers, a
+class-stratified 15\% of the images forms the validation set. No layer is
+frozen. AdamW updates the backbone with a learning rate of $0.00001$ and the
+attention module and classifier with $0.001$, using weight decay $0.0001$
+and cosine annealing in both groups. Each fold runs for 15 epochs at batch
+size 32 with seed 42, and the held-out signer is scored once, with the
+checkpoint that reached the highest validation accuracy.
 
-\subsection{Kaggle ASL Alphabet}
+\subsection{Ablation: Frozen Backbone with Little Data}
+\label{sec:ablation}
 
-The collection contains 87,000 images and 29 labels: A--Z, \emph{del},
-\emph{nothing}, and \emph{space}.\footnote{%
-\url{https://www.kaggle.com/datasets/grassknoted/asl-alphabet}}
-A stratified 80/10/10 split with seed 42 fixes 8,700 validation images and
-8,700 test images. The official 28-image Kaggle test folder is unused. For
-the controlled study the ImageNet-initialized extractor stays frozen, and
-only the training partition is stratified down to 1\%, 5\%, or 10\%.
-Validation and test stay intact. Each method trains for 15 epochs at seeds
-42, 43, and 44, on $224\times224$ inputs, with batch size 32. The optimizer
-is AdamW \citep{loshchilov_2019_adamw}, initial learning rate $0.001$,
-weight decay $0.0001$, and a cosine schedule across the epoch budget
-\citep{loshchilov_2017_sgdr}. The checkpoint with the best validation
-accuracy is evaluated once on the held-out test set. Horizontal flips are
-omitted because they change the handedness of a sign.
+Fine-tuning the whole network on the random Kaggle split gives 100\% test accuracy
+with and without \QCA{}, close to the ceiling that Alsharif et al.\ report
+\citep{alsharif_2023_asl}, so this split cannot separate attention modules.
+The ablation therefore keeps the ImageNet backbone frozen, leaving the head
+as the only source of differences, and cuts the training portion
+(stratified by class) to 1\%, 5\% or 10\% while validation and test keep
+8,700 images each. Heads are trained for 15 epochs at batch size 32 with
+AdamW, a learning rate of $0.001$ under cosine annealing and weight decay
+$0.0001$; the whole grid is repeated with seeds 42, 43 and 44.
 
-The frozen protocol is an attribution ablation. It does not describe a
-deployment setting. Separate end-to-end checks on the full training split
-reach 100\% test accuracy both for plain DenseNet121 and for DenseNet121
-with \QCA{}. That tie is treated as evidence that the random image split is
-saturated for comparing attention heads.
+\subsection{Evaluation Metrics}
 
-\subsection{MU Signer-Held-Out Study}
-
-MU HandImages contains 2,425 frames from five people.\footnote{%
-\url{https://hdl.handle.net/10179/4514}}
-The study keeps 1,815 A--Z examples and drops the remaining classes, leaving
-a 26-way task. The five signers contribute 650, 645, 130, 130, and 260
-images. Each fold holds out one signer for testing and takes a
-class-stratified 15\% of the other four signers as validation.
-
-Every DenseNet layer is trainable. Training lasts 15 epochs at seed 42, with
-$224\times224$ inputs, batch size 32, backbone learning rate $0.00001$, head
-learning rate $0.001$, weight decay $0.0001$, AdamW, and cosine annealing
-\citep{loshchilov_2019_adamw,loshchilov_2017_sgdr}. Checkpoint selection
-follows the same validation rule in every fold.
-
-\subsection{Metrics}
-
-Reported figures are test accuracy and macro-F1, recomputed from the saved
-checkpoint. Kaggle summaries are the mean and sample standard deviation
-across three training seeds. For MU, the primary summary gives each signer
-equal weight: the mean and sample standard deviation of the five fold
-scores. Pooled scores concatenate the folds and therefore weigh a signer by
-image count. Exploratory two-sided paired $t$-tests compare proposed \QCA{}
-with each control on the five signer accuracies. The three tests are
-unadjusted. Five pairs have little power, so a failure to reject the null
-at $\alpha=0.05$ is not an equivalence result.
+All metrics are computed again from the saved checkpoints. Accuracy and
+macro-F1 are reported. For MU, the main summary is the mean and sample
+standard deviation over the five signers, because pooled scores give more
+weight to signers with more images, and the largest fold is five times the
+smallest. Pooled accuracy is reported as a second metric. Two-sided paired
+$t$-tests compare \QCA{} with each reference module over the five signer
+accuracies, without correction for multiple tests. With only five pairs the
+tests have low power, so a non-significant result does not prove that two
+models are equal. Kaggle results are averaged over three seeds, because
+random initialisation alone can change the order of close methods
+\citep{bouthillier_2021_variance}.
 
 \section{Results}
 \label{sec:results}
 
-\subsection{Compactness of Proposed QCA}
+\subsection{Parameter Efficiency of the QCA Gate (C1)}
+\label{sec:res-params}
 
-The proposed method is \QCA{}. SE is a larger classical control. Treating
-the highest score in a table as the proposed method would invert the study,
-and it would make the signer-held-out comparison look like a failed SE
-paper. The claim that the results can actually support is narrower, and it
-is numerical.
+Table~\ref{tab:parameters} confirms the first contribution. The \QCA{} gate
+uses 17,464 attention parameters and SE uses 131,072, so \QCA{} needs 7.51
+times fewer, or 13.3\% of the SE budget. Only 48 of the 17,464 parameters
+are circuit angles. The rest belong to the two projections, as in any
+bottleneck gate \citep{hu_2020_se,wang_2020_eca}. The matched MLP differs from
+\QCA{} by 16 parameters, so comparing the two isolates the circuit. With full
+fine-tuning the backbone dominates the total count, so the attention column
+is the one that matters.
 
-Table~\ref{tab:parameters} records the parameter side of that claim. Proposed
-\QCA{} has 17,464 attention parameters. The matched MLP has 17,480. SE has
-131,072, which is $7.51\times$ the \QCA{} attention budget. Frozen trainable
-counts follow the same order: 47,189 for \QCA{}, 47,205 for the MLP, 160,797
-for SE, and 29,725 with no attention. Once the backbone is unfrozen, the
-extractor dominates the total, so an unfrozen parameter count is not
-evidence that the gate itself is small. The attention column is the relevant
-one.
+\subsection{Accuracy on Unseen Signers (C2)}
+\label{sec:res-mu}
 
-\input{tables/parameters.tex}
-
-\subsection{Signer-Held-Out Evaluation}
-
-The predictive test of proposed \QCA{} is the fully unfrozen MU protocol.
-Table~\ref{tab:mu} gives equal-signer means beside pooled scores. Under the
-primary, equal-signer summary, no attention reaches 94.78\%, the matched MLP
-94.55\%, proposed \QCA{} 94.50\%, and SE 93.72\%. Signer-level macro-F1 puts
-no attention first as well. Proposed \QCA{} does lead the pooled accuracy,
-at 94.99\%, ahead of the MLP at 94.88\%, no attention at 94.82\%, and SE at
-94.71\%. The fold sizes differ by a factor of five, so the pooled number
-answers a different question: performance on this particular mixture of
-images. It does not answer performance for a typical held-out signer.
-Two-sided paired tests of \QCA{} against no attention, the MLP, and SE
-return $p=0.543$, $p=0.943$, and $p=0.116$. None rejects the null at
-$\alpha=0.05$. Five signers cannot carry an equivalence claim either. The
-supported reading is that proposed \QCA{} stays with the controls while
-using far fewer attention parameters than SE. A ranking that flips when the
-average changes is a known risk in small quantum-model comparisons
-\citep{bowles_2024_benchmark}.
+Table~\ref{tab:mu} summarises the held-out-signer results. Averaged over the
+five signers, QCA-DenseNet scores 94.50\%, which is 0.28 points behind the
+model without attention (94.78\%, $p=0.543$) and 0.05 points behind the
+matched MLP (94.55\%, $p=0.943$). Against SE the sign reverses: \QCA{} is
+0.78 points ahead of SE (93.72\%) with 13.3\% of its attention parameters,
+although this accuracy difference is not significant ($p=0.116$), and
+macro-F1 moves the same way (94.26\% against 93.04\%). On pooled accuracy
+\QCA{} ranks first, at 94.99\%. That ranking rests on the weighting: the two
+large signers supply most of the pooled test images, and when each signer
+counts equally the lead disappears. Table~\ref{tab:mu} thus supports parity
+at a much lower attention cost; it does not show that \QCA{} is better. With
+five signer pairs and a single training seed, even the parity is an
+observation rather than a demonstrated equivalence
+\citep{bouthillier_2021_variance}.
 
 \input{tables/mu_results.tex}
 
-The fold plot makes the spread obvious. Methods move together inside a
-signer, and signers do not. Signer 5, the 260-image fold, is the low point
-for every head. The gap between heads inside one fold is smaller than the
-gap between signer 5 and the other four.
-Figure~\ref{fig:signer} shows that pattern.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.90\textwidth]{../runs/mu_loso_signer_accuracy.png}
-\caption{MU test accuracy of proposed QCA and the controls, by held-out signer.}
-\label{fig:signer}
-\end{figure*}
-
-Table~\ref{tab:signers} lists the same folds. Proposed \QCA{} matches no
-attention on signer 1 (95.38\%) and on signer 5 (85.77\%), and matches SE on
-signer 2 (97.52\%). Signer 3 is the clearest local loss for \QCA{} relative
-to no attention, 96.92\% against 98.46\%. No row wins every signer. That is
-why the paired tests stay inconclusive, and why a single pooled percentage
-would overstate the case for any one head \citep{erdogan_2024_signer}.
+Table~\ref{tab:signers} shows why the module differences are so hard to
+separate. \QCA{} is ahead of SE on signers 3, 4 and 5, level on signer 2
+and behind on signer 1. All four modules find signer 5 the hardest, with
+accuracies between 84.62\% and 87.69\%, whereas the other folds stay between
+94.77\% and 98.46\%. Changing the test person moves accuracy by
+roughly ten points, while changing the attention module moves it by at most
+3.08 points on any single signer. Erdo\u{g}an and Bayta\c{s} treat signer
+identity as a separate source of error \citep{erdogan_2024_signer}; these
+folds show how large that source is here.
 
 \input{tables/signer_results.tex}
 
-Errors of the proposed module, pooled over the five held-out signers, sit on
-the diagonal except for a few letter pairs. The occupied off-diagonal cells
-are led by M predicted as N, N predicted as M, and V predicted as W, with a
-smaller A-to-T band. Those pairs are visually close in a still frame.
-Figure~\ref{fig:qca-cm} prints the count in every occupied cell of that one
-matrix, so the diagonal and the confusions can be read without a four-panel
-reduction.
+Figure~\ref{fig:efficiency}(a) places each module by attention budget and
+MU accuracy. The three small modules, none above 17,480 attention
+parameters, sit within 0.28 points of one another, and SE, at 131,072
+parameters, has the lowest signer mean. Figure~\ref{fig:efficiency}(b)
+plots the five per-signer differences behind each $t$-test. Relative to no
+attention and to the matched MLP they fall on both sides of zero; relative
+to SE, four of the five are zero or positive. \QCA{} sits with the cheap
+modules at no visible cost in accuracy, but it is not ahead of the
+cheapest ones.
 
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/qca_confusion_matrix.png}
-\caption{Pooled confusion matrix of proposed QCA on the five MU held-out signers.}
-\label{fig:qca-cm}
+\includegraphics[width=0.92\textwidth]{figures/mu_efficiency.pdf}
+\caption{MU accuracy versus attention parameters (a) and paired per-signer differences from QCA (b).}
+\label{fig:efficiency}
 \end{figure*}
 
-\subsection{Frozen Low-Data Ablation}
+Figure~\ref{fig:cm} pools the QCA-DenseNet predictions from all five
+held-out signers, with correct predictions on the diagonal and errors in
+red. Of the 1,815 test images, 1,724 are classified correctly, and most of
+the mistakes involve a few pairs of similar handshapes. M and N are confused
+in both directions (16 and 13 images), V is read as W 11 times, and A as T
+6 times. Within each pair the letters differ only in the thumb
+position or in how many fingers are raised or folded, a detail that is easy
+to miss in one still frame.
 
-The frozen runs ask a narrower question and do not change which method is
-proposed. With the extractor fixed, extra capacity in the head is easier to
-see. SE, the larger control of Hu et al.\ \citep{hu_2018_se}, has the
-highest mean test accuracy at 1\%, 5\%, and 10\% of the training split.
-Table~\ref{tab:low-data} reports the three-seed means. At 1\%, proposed
-\QCA{} reaches 62.16\%, below SE at 66.17\% and below no attention at
-64.69\%. At 5\%, \QCA{} is the lowest of the four means. At 10\%, the
-matched MLP reaches 90.93\% and proposed \QCA{} reaches 90.36\%, just above
-no attention at 90.19\%. The matched MLP is the informative control at that
-fraction: nearly the same parameter count, higher accuracy.
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/qca_confusion_matrix.pdf}
+\caption{QCA-DenseNet predictions pooled over the five held-out MU signers.}
+\label{fig:cm}
+\end{figure*}
+
+\subsection{Contribution of the Circuit (C3)}
+\label{sec:res-attr}
+
+Because the matched MLP has every part of \QCA{} except the circuit,
+comparing the two isolates what the circuit contributes. On MU they reach
+94.55\% and 94.50\% (Table~\ref{tab:mu}), a gap of 0.05 points with
+$p=0.943$, so replacing the circuit with an eight-unit classical layer makes
+no difference that this test can detect. Dropping the gate altogether does
+not hurt either: the model without attention, which has no gate
+parameters, scores 94.78\% ($p=0.543$ against \QCA{}). Neither the circuit
+nor the bottleneck around it adds measurable accuracy, and the performance
+on unseen signers is best credited to the fine-tuned DenseNet121 features.
+Huang et al.\ reached a related conclusion in a different setting, where
+classical learners with access to data matched quantum models
+\citep{huang_2021_data}.
+
+\subsection{Frozen-Backbone Ablation (C3)}
+\label{sec:res-frozen}
+
+With the backbone frozen only the head can adapt, and
+Table~\ref{tab:low-data} shows a different ordering. SE now leads at every
+training fraction, in both accuracy and macro-F1, which fits its much larger
+head. The three small heads change places from one fraction to the next. At
+1\%, \QCA{} reaches 62.16\%, 1.36 points above the matched MLP, yet it
+trails no attention (64.69\%) and SE (66.17\%). At 5\% the four means lie
+within 1.09 points and \QCA{} is last. At 10\% it reaches 90.36\%, 0.17
+points above no attention and 0.58 points below the matched MLP. Macro-F1 ranks the modules
+exactly as accuracy does at each fraction. One extra frozen run on the full
+training split (seed 42) keeps the order seen at 10\%: SE 97.10\%, \QCA{}
+95.98\%, no attention 95.89\%.
 
 \input{tables/low_data.tex}
 
-Figure~\ref{fig:low-data} plots those means with sample standard deviation.
-All four curves rise and draw closer as the training fraction grows. SE
-remains the upper curve at every marked fraction. The spread across seeds is
-largest at 1\%, where \QCA{} and the MLP both move by more than a point
-across the three initializations.
+A data re-uploading variant \citep{perez_2020_reupload}, which repeats the
+angle encoding before each variational layer, was also tried at 1\% data
+with seed 42 and the same 17,464 parameters. It reached 61.38\% test
+accuracy, slightly below the 61.83\% of the standard gate trained with that
+seed. The wider frequency spectrum did not turn into accuracy in this
+single-seed pilot, and the variant was not pursued further.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.86\textwidth]{../runs/low_data_learning_curve.png}
-\caption{Frozen Kaggle test accuracy (mean $\pm$ SD over three seeds).}
-\label{fig:low-data}
-\end{figure*}
-
-Macro-F1 preserves the accuracy order at each fraction.
-Table~\ref{tab:low-data-f1} is the check that a single dominant class is not
-hiding a different ranking. At 10\%, for example, proposed \QCA{} has macro-F1
-90.35\% beside accuracy 90.36\%. The two metrics do not tell different
-stories.
-
-\input{tables/low_data_f1.tex}
-
-A separate frozen run on the full training split, seed 42, agrees with the
-low-data order. SE reaches 97.10\% test accuracy, proposed \QCA{} 95.98\%,
-and no attention 95.89\%. SE's extra 1.12 points sit next to a
-$7.51\times$ larger attention block. That is a real accuracy gap in the
-frozen setting. It is also the reason SE cannot be quietly promoted to the
-proposed method: the study set out to test whether the smaller quantum gate
-was worth using, and the frozen answer is that the smaller gate gives up
-accuracy.
-
-\subsection{Data Re-uploading Pilot}
-
-At 1\% training data and seed 42, a re-uploading variant that repeats the
-eight-angle encoding before each variational layer reaches 61.38\% test
-accuracy. The matched \QCA{} run without re-uploading reaches 61.83\%. Both
-use 17,464 attention parameters. The variant does not improve the matched
-seed, so the pilot stops there \citep{perez_2020_reupload}.
+Measured against the contributions listed in Section~\ref{sec:intro}, C1
+holds by construction, C2 holds as comparable rather than better accuracy,
+and C3 finds no measurable effect of the circuit.
 
 \section{Discussion}
 \label{sec:discussion}
 
-The result that survives both protocols is compactness, not a win on
-accuracy. Proposed \QCA{} is the only new block in the comparison, and
-Table~\ref{tab:parameters} fixes its size. SE is more accurate whenever the
-backbone is frozen. The matched MLP, which is the control with almost the
-same width, is at least as accurate as \QCA{} at 10\% training data and on
-the equal-signer MU mean. A circuit effect that beat a same-sized classical
-bottleneck would have shown up there. It does not.
+SE leads every frozen comparison and yet has the lowest signer mean on MU.
+With a frozen backbone the head is the only trainable part, so extra head capacity pays
+off, and SE has far more of it than the other three modules. Once every
+layer is trained, the backbone can learn hand features on its own, and the
+gate is probably left to make small corrections to features that already
+suit the task. Under those conditions the 17,464-parameter gate did no worse
+than the 131,072-parameter one, and neither moved far from the model with
+no gate at all. The 48 circuit angles behaved, in effect, like a classical
+bottleneck of the same width. Scaling the circuit up in the hope of a
+quantum advantage would come at a price, since larger circuits tend to be
+harder to train.
 
-The two protocols disagree because they ask different questions, which is
-also why a benchmark can be tipped by its design
-\citep{raubitzek_2023_applicability,bowles_2024_benchmark}. Freezing the
-backbone isolates the head and, at the same time, refuses the extractor any
-chance to adapt to ASL. End-to-end MU training is closer to a model one
-might actually ship, and there the differences between heads are smaller
-than the differences between signers. Signer identity has the same character
-in other sign-recognition studies: a representation that fits the people in
-the training set can fail on a new person \citep{erdogan_2024_signer}. The
-full-data Kaggle split makes the attribution problem worse in another way.
-Plain DenseNet121 and DenseNet121 with \QCA{} both reach the ceiling, so a
-hybrid score of 100\% would have nothing to say about the circuit.
+How the MU results are averaged also changes the ranking. Pooled accuracy
+describes the particular mix of images in MU, whereas the signer mean
+estimates what a new person can expect, and \QCA{} leads only on the first.
+Reporting the pooled 94.99\% alone would imply a ranking that the
+signer-level tests do not support. Parameter counts need similar care. The 113,608
+parameters saved relative to SE amount to about 1.6\% of the full model,
+and wall-clock time was not compared. A smaller gate is therefore mainly
+of interest when the attention budget itself is tight, and the frozen
+ablation shows that in that setting it gives up some accuracy.
 
-Subject weighting has to stay visible for the same reason. Pooled accuracy
-describes the empirical mixture of images. The equal-signer mean describes
-an average observed person. Proposed \QCA{} leads the first and does not
-lead the second. Publishing only the pooled 94.99\% would invent a ranking
-the signer-level tests do not support. Adding depth or qubits in the hope of
-reversing that outcome is not a free next step. Gradient signal in random
-parameterized circuits can collapse as the register grows
-\citep{mcclean_2018_barren}. Any such sweep would also have to give the MLP
-and SE the same tuning budget they were denied here.
-
-\FloatBarrier
 \section{Future Scope}
 \label{sec:future}
 
-The useful next measurement is a larger signer-held-out set: more people,
-and more than one training seed. Five pairs cannot separate a
-half-point gap from noise, and a single seed cannot show that the tie
-survives a new initialization. Capture conditions and continuous signing
-are still outside the static frames used here
-\citep{camgoz_2018_slt,rastgoo_2021_survey}.
-
-Hardware claims need a different experiment. Gate noise limits the circuit
-that can be executed reliably, and a small device is not an automatic win
-on a vision task \citep{preskill_2018_nisq}. A noise model, or a run on
-hardware, has to come before any statement about speed, energy, or
-robustness. Depth and qubit count belong in a preregistered sweep with the
-same search budget on the classical controls, both because random circuits
-can become untrainable \citep{mcclean_2018_barren} and because a
-re-uploading construction \citep{perez_2020_reupload} already failed to help
-at the one budget that was tried. The shared schedule in the present runs
-keeps the methods comparable. It does not certify that each head was fully
-tuned. The redistribution terms of the pinned MU mirror should also be
-confirmed before derived images or predictions are released.
+Future work will add more signers and training seeds, compare \QCA{} with
+ECA-Net, test the circuit under noise or on quantum hardware, and extend the
+pipeline to continuous fingerspelling.
 
 \FloatBarrier
 \section{Conclusion}
 \label{sec:conclusion}
 
-The proposed method is an eight-qubit channel gate on pooled DenseNet121
-features for static ASL recognition. The comparison that tests it uses no
-attention, a parameter-matched MLP, and a much larger SE block, under one
-data pipeline and one optimizer. Proposed \QCA{} meets the compactness
-target: SE uses $7.51\times$ as many attention parameters. It does not meet
-an accuracy target. SE leads every frozen low-data condition, and no
-attention has the highest equal-signer mean once the backbone is trained.
-The pooled edge for \QCA{} on MU disappears under equal-signer averaging
-and is not supported by paired tests. What the study demonstrates is a
-compact quantum channel gate whose predictive value, on these splits and
-this simulator, stays inside the range of fair classical controls
-\citep{bowles_2024_benchmark}.
+This paper proposed QCA-DenseNet, a static ASL recognition pipeline in which
+an eight-qubit variational circuit gates the pooled channels of DenseNet121.
+The \QCA{} gate needs 17,464 attention parameters, 7.51 times fewer than SE.
+In leave-one-signer-out testing with full fine-tuning, the pipeline reached
+94.50\% mean accuracy over signers, within 0.28 points of the best model and
+above SE, and it had the highest pooled accuracy (94.99\%). A matched MLP
+and a model without attention performed about the same, no paired difference
+was significant, and SE was stronger whenever the backbone was frozen.
+\QCA{} is therefore a compact gate that is comparable to, but does not
+improve on, classical options. The accuracy of the pipeline comes from the fine-tuned
+backbone, and no quantum advantage was observed.
 
-\bibliographystyle{plainnat}
+\section*{Author Contributions}
+% CRediT taxonomy (https://credit.niso.org); confirm roles with all authors.
+\textbf{Ronak Bhalgami:} Conceptualization, Methodology, Software,
+Investigation, Formal analysis, Visualization, Writing -- original draft.
+\textbf{Deep Kothadiya:} Supervision, Methodology, Writing -- review \&
+editing. \textbf{Nikita Bhatt:} Supervision, Writing -- review \& editing.
+
+\bibliographystyle{unsrtnat}
 \bibliography{references}
 
 \end{document}

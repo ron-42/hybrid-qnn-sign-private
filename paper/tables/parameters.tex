@@ -1,16 +1,16 @@
-\begin{table*}[t]
+\begin{table}[!hb]
 \centering
-\caption{Parameter counts. QCA is the proposed attention module.}
+\caption{Parameter counts of all channel modules.}
 \label{tab:parameters}
-\small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lrrr}
 \toprule
-Method & Attention & Frozen trainable & Unfrozen trainable \\
+Module & Attention & Trainable (frozen) & Trainable (full) \\
 \midrule
-\textbf{QCA (proposed)} & 17,464 & 47,189 & 6,997,970 \\
+\textbf{QCA (proposed)} & \textbf{17,464} & 47,189 & 6,997,970 \\
 Matched MLP & 17,480 & 47,205 & 6,997,986 \\
-SE & 131,072 & 160,797 & 7,111,578 \\
+SE ($r=16$) & 131,072 & 160,797 & 7,111,578 \\
 No attention & 0 & 29,725 & 6,980,506 \\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}}
+\end{table}

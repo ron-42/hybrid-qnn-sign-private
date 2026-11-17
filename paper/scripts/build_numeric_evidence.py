@@ -119,6 +119,53 @@ def main():
             0.0051,
         )
 
+
+    # Derived quantities quoted in Results; recomputed from canonical CSVs.
+    def pct(method, fraction):
+        row = next(r for r in low_rows if r["model"] == method and r["train_fraction"] == fraction)
+        return 100 * float(row["test_acc_mean"])
+    mu_by = {r["method"]: r for r in mu_summary}
+    qca_attn = float(mu_by["qca"]["attention_params"])
+    se_attn = float(mu_by["se"]["attention_params"])
+    acc = {}
+    for r in mu_results:
+        acc.setdefault(r["held_out_signer"], []).append(100 * float(r["test_accuracy"]))
+    derived = {
+        "qca_over_mlp_1pct_points": pct("qca", "0.01") - pct("mlp", "0.01"),
+        "spread_5pct_points": max(pct(m, "0.05") for m in ("qca", "mlp", "se", "none"))
+        - min(pct(m, "0.05") for m in ("qca", "mlp", "se", "none")),
+        "qca_over_none_10pct_points": pct("qca", "0.1") - pct("none", "0.1"),
+        "mlp_over_qca_10pct_points": pct("mlp", "0.1") - pct("qca", "0.1"),
+        "qca_share_of_se_percent": 100 * qca_attn / se_attn,
+        "se_minus_qca_params": se_attn - qca_attn,
+        "saving_share_of_full_model_percent": 100 * (se_attn - qca_attn)
+        / float(mu_by["qca"]["trainable_params"]),
+        "none_minus_qca_signer_points": 100 * (float(mu_by["none"]["signer_mean_accuracy"])
+                                                - float(mu_by["qca"]["signer_mean_accuracy"])),
+        "mlp_minus_qca_signer_points": 100 * (float(mu_by["mlp"]["signer_mean_accuracy"])
+                                               - float(mu_by["qca"]["signer_mean_accuracy"])),
+        "qca_minus_se_signer_points": 100 * (float(mu_by["qca"]["signer_mean_accuracy"])
+                                              - float(mu_by["se"]["signer_mean_accuracy"])),
+        "max_within_signer_gap_points": max(max(v) - min(v) for v in acc.values()),
+    }
+
+    # Pooled QCA confusion counts quoted in Results.
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    counts = {}
+    for signer in range(1, 6):
+        for r in csv_rows(f"runs/mu_loso_signer{signer}_qca_seed42/test_predictions.csv"):
+            pair = (r["true_class"], r["pred_class"])
+            counts[pair] = counts.get(pair, 0) + 1
+    correct = sum(v for (t, p), v in counts.items() if t == p)
+    derived.update({"qca_correct": correct, "m_to_n": counts[("M", "N")],
+                    "n_to_m": counts[("N", "M")], "v_to_w": counts[("V", "W")],
+                    "a_to_t": counts[("A", "T")]})
+    derived_path = "paper/evidence/derived_values.json"
+    (ROOT / derived_path).write_text(json.dumps(derived, indent=2) + "\n", encoding="utf-8")
+    for key, value in derived.items():
+        entries.append(entry(value, derived_path, {"kind": "json-pointer", "pointer": f"/{key}"},
+                             ("raw",), 0.0051))
+
     constants_path = "paper/evidence/study_constants.json"
     constants = json.loads((ROOT / constants_path).read_text(encoding="utf-8"))
     for pointer, value in walk_numbers(constants):

@@ -1,16 +1,26 @@
-\begin{table*}[t]
+\begin{table}[!hb]
 \centering
-\caption{Frozen Kaggle test accuracy (\%; mean $\pm$ SD, three seeds).}
+\caption{Frozen Kaggle ablation (\%, mean $\pm$ SD).}
 \label{tab:low-data}
 \small
-\begin{tabular}{lrrr}
+\begin{tabular}{llcc}
 \toprule
-Method & 1\% training data & 5\% training data & 10\% training data \\
+Data & Module & Accuracy & Macro-F1 \\
 \midrule
-\textbf{QCA (proposed)} & $62.16 \pm 1.16$ & $86.13 \pm 0.93$ & $90.36 \pm 0.35$ \\
-Matched MLP & $60.80 \pm 1.31$ & $86.39 \pm 0.47$ & $90.93 \pm 0.24$ \\
-SE & $66.17 \pm 0.42$ & $87.22 \pm 0.88$ & $91.12 \pm 0.45$ \\
-No attention & $64.69 \pm 0.63$ & $86.43 \pm 0.55$ & $90.19 \pm 0.60$ \\
+1\% & \textbf{QCA (proposed)} & $62.16 \pm 1.16$ & $60.49 \pm 1.46$ \\
+ & Matched MLP & $60.80 \pm 1.31$ & $59.06 \pm 1.79$ \\
+ & SE & $66.17 \pm 0.42$ & $65.25 \pm 0.11$ \\
+ & No attention & $64.69 \pm 0.63$ & $63.42 \pm 0.92$ \\
+\midrule
+5\% & \textbf{QCA (proposed)} & $86.13 \pm 0.93$ & $86.06 \pm 0.94$ \\
+ & Matched MLP & $86.39 \pm 0.47$ & $86.34 \pm 0.50$ \\
+ & SE & $87.22 \pm 0.88$ & $87.18 \pm 0.90$ \\
+ & No attention & $86.43 \pm 0.55$ & $86.38 \pm 0.56$ \\
+\midrule
+10\% & \textbf{QCA (proposed)} & $90.36 \pm 0.35$ & $90.35 \pm 0.38$ \\
+ & Matched MLP & $90.93 \pm 0.24$ & $90.94 \pm 0.23$ \\
+ & SE & $91.12 \pm 0.45$ & $91.13 \pm 0.46$ \\
+ & No attention & $90.19 \pm 0.60$ & $90.17 \pm 0.62$ \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}

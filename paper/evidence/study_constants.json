@@ -13,7 +13,10 @@
     "mlp_attention_params": 17480,
     "se_attention_params": 131072,
     "qca_se_parameter_ratio": 7.505726065047,
-    "mlp_qca_parameter_difference": 16
+    "mlp_qca_parameter_difference": 16,
+    "qca_down_projection_params": 8200,
+    "qca_circuit_params": 48,
+    "qca_up_projection_params": 9216
   },
   "kaggle": {
     "classes": 29,
@@ -43,7 +46,8 @@
     "qca_v2_pilot_test_accuracy": 0.6138
   },
   "mu": {
-    "original_images": 2425,
+    "original_images": 2515,
+    "original_classes": 36,
     "used_images": 1815,
     "classes": 26,
     "signers": 5,

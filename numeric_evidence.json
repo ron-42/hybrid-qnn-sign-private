@@ -1921,6 +1921,214 @@
       "tolerance": 0.0051
     },
     {
+      "value": 1.356666666666662,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/qca_over_mlp_1pct_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 1.086666666666673,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/spread_5pct_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.1666666666666714,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/qca_over_none_10pct_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.576666666666668,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mlp_over_qca_10pct_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 13.323974609375,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/qca_share_of_se_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 113608.0,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/se_minus_qca_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 1.6234422268172055,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/saving_share_of_full_model_percent"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.2754919499105557,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/none_minus_qca_signer_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.045676803816341316,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mlp_minus_qca_signer_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 0.7846153846153836,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/qca_minus_se_signer_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 3.07692307692308,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/max_within_signer_gap_points"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 1724,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/qca_correct"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 16,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/m_to_n"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 13,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/n_to_m"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 11,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/v_to_w"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
+      "value": 6,
+      "source": "paper/evidence/derived_values.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/a_to_t"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 0.0051
+    },
+    {
       "value": 1024,
       "source": "paper/evidence/study_constants.json",
       "selector": {
@@ -2017,6 +2225,45 @@
       "selector": {
         "kind": "json-pointer",
         "pointer": "/architecture/mlp_qca_parameter_difference"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 8200,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/qca_down_projection_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 48,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/qca_circuit_params"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 9216,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/architecture/qca_up_projection_params"
       },
       "aggregate": "identity",
       "representations": [
@@ -2357,11 +2604,24 @@
       "tolerance": 1e-06
     },
     {
-      "value": 2425,
+      "value": 2515,
       "source": "paper/evidence/study_constants.json",
       "selector": {
         "kind": "json-pointer",
         "pointer": "/mu/original_images"
+      },
+      "aggregate": "identity",
+      "representations": [
+        "raw"
+      ],
+      "tolerance": 1e-06
+    },
+    {
+      "value": 36,
+      "source": "paper/evidence/study_constants.json",
+      "selector": {
+        "kind": "json-pointer",
+        "pointer": "/mu/original_classes"
       },
       "aggregate": "identity",
       "representations": [

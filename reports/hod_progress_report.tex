@@ -1,0 +1,286 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[raggedright]{titlesec}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta,positioning}
+\graphicspath{{../paper/figures/}}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+{\Large\textbf{Progress report: quantum channel attention for sign recognition}}\par\medskip
+
+This is a summary of what I have done so far on the project: the reading,
+the model, the experiments, the results and the paper draft.
+
+\section*{1. What I set out to do}
+
+I wanted to check if a small quantum circuit can work as a channel-attention
+block inside a CNN for American Sign Language (ASL) letter recognition. The
+plan was to put an 8-qubit circuit into DenseNet121 and see if it helps
+accuracy or saves parameters compared with normal classical attention.
+
+Short answer so far: it saves parameters compared with SE attention, but it
+does not improve accuracy, and a classical layer of the same size does just as
+well. So the result is negative.
+
+\section*{2. Background reading}
+
+I went through around 28 papers (2020--2025, all journal or conference
+papers, no arXiv-only ones). Main points I took from them:
+
+\begin{itemize}
+  \item Deep CNNs already get close to 100\% on the Kaggle ASL alphabet
+        dataset. Alsharif et al.\ (2023) got 99.98\% with ResNet-50. So that
+        dataset alone cannot show whether a new module helps.
+  \item The real problem in sign recognition is new signers, people the
+        model never saw in training (Erdo\u{g}an and Bayta\c{s}, 2024). Sahoo
+        et al.\ (2022) tested the MU HandImages dataset with
+        leave-one-subject-out testing, so I used the same idea.
+  \item Hybrid quantum-classical image models usually put a circuit after a
+        classical feature extractor (Mari et al., 2020; Long et al., 2025).
+        Budiutama et al.\ (2024) have ``channel attention'' for quantum CNNs,
+        but it works on quantum states, not on CNN image channels.
+  \item Theory papers say small circuits are limited in what they can
+        represent (Schuld et al., 2021), classical models with data can often
+        match them (Huang et al., 2021), and training can suffer from
+        vanishing gradients (Cerezo et al., 2021).
+  \item For attention: SE (Hu et al., 2020) is the usual baseline, and
+        ECA-Net (Wang et al., 2020) gets similar results with fewer
+        parameters.
+  \item Several papers say quantum models need fair classical baselines
+        (Raubitzek and Mallinger, 2023; Schuld and Killoran, 2022), and that
+        random seeds can change which method looks best (Bouthillier et al.,
+        2021). Because of this I added a classical layer with the same number
+        of parameters and repeated runs with different seeds.
+\end{itemize}
+
+\section*{3. What I built}
+
+The model is DenseNet121 with a quantum channel attention (QCA) gate between
+the global pooling and the classifier:
+
+\begin{enumerate}
+  \item The 1,024 pooled features are projected down to 8 numbers and scaled
+        with $\tanh$ to the range $(-\pi/2, \pi/2)$.
+  \item These 8 numbers are loaded into 8 qubits with $R_Y$ rotations, passed
+        through 2 entangling layers, and measured (Pauli-$Z$).
+  \item The 8 outputs are projected back up to 1,024 values and passed
+        through a sigmoid to get one weight per channel.
+  \item The features are multiplied by these weights before the classifier.
+\end{enumerate}
+
+The circuit is simulated in PennyLane on CPU. The whole gate has 17,464
+parameters (8,200 down-projection, 48 in the circuit, 9,216 up-projection).
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{\input{../paper/figures/qca_pipeline.tex}}
+\caption*{The model (a) and what is inside the QCA gate (b).}
+\end{figure}
+
+To compare fairly, I also implemented three other options in the same place:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrl}
+\toprule
+Module & Parameters & Why \\
+\midrule
+QCA (quantum) & 17,464 & the one being tested \\
+Matched MLP & 17,480 & same shape as QCA, classical layer instead of circuit \\
+SE attention & 131,072 & standard classical attention \\
+No attention & 0 & plain DenseNet121 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{4. Data}
+
+\begin{itemize}
+  \item \textbf{Kaggle ASL Alphabet:} 87,000 images, 29 classes. Split
+        80/10/10 with a fixed seed (8,700 test images).
+  \item \textbf{MU HandImages:} 2,515 images in total; I used the 1,815 A--Z
+        images from 5 signers. The signers have 650, 645, 130, 130 and 260
+        images.
+  \item No horizontal flipping, because flipping a hand changes the sign.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{dataset_samples.pdf}
+\caption*{Some letters from Kaggle (top) and MU (bottom).}
+\end{figure}
+
+\section*{5. Experiments I ran, in order}
+
+\begin{enumerate}
+  \item \textbf{Baseline.} DenseNet121 fine-tuned on Kaggle: 100.00\% test
+        accuracy. This showed the Kaggle split is too easy to compare models.
+  \item \textbf{QCA on Kaggle, full training.} DenseNet121 + QCA and
+        ResNet50 + QCA both got 100.00\% test accuracy. Same as baseline, so
+        this says nothing about QCA.
+  \item \textbf{Frozen backbone, full data (one seed).} Only the head trains,
+        so the attention block matters more. SE 97.10\%, QCA 95.98\%, no
+        attention 95.89\%.
+  \item \textbf{Low-data runs.} Frozen backbone, 1\%, 5\% and 10\% of the
+        training data, all four modules, three seeds each (36 runs).
+  \item \textbf{Re-uploading test.} A QCA version that loads the input again
+        before each circuit layer. One run at 1\% data: 61.38\% vs.\ 61.83\%
+        for the normal QCA, so I did not continue with it.
+  \item \textbf{MU unseen-signer test (main experiment).} As my supervisor
+        asked, all layers are trained here. I train on 4 signers and test on
+        the 5th, for each signer and each of the four modules (20 runs).
+        15 epochs, batch 32, learning rate $10^{-5}$ for the backbone and
+        $10^{-3}$ for the head, seed 42.
+\end{enumerate}
+
+\section*{6. Results}
+
+\textbf{MU, unseen signers.} The main number is the average over the 5
+signers (each signer counts equally).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Module & Avg.\ over signers (\%) & All images pooled (\%) & Macro-F1 (\%) & $p$ vs.\ QCA \\
+\midrule
+No attention & 94.78 $\pm$ 5.17 & 94.82 & 94.61 & 0.543 \\
+Matched MLP & 94.55 $\pm$ 4.02 & 94.88 & 93.95 & 0.943 \\
+QCA & 94.50 $\pm$ 4.95 & 94.99 & 94.26 & -- \\
+SE & 93.72 $\pm$ 5.17 & 94.71 & 93.04 & 0.116 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All four are within about 1 point and none of the differences is
+significant (paired t-test over signers). QCA is slightly ahead on the pooled
+number only because the bigger signers count more there.
+
+Per signer:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccccc}
+\toprule
+Module & Signer 1 & Signer 2 & Signer 3 & Signer 4 & Signer 5 \\
+\midrule
+QCA & 95.38 & 97.52 & 96.92 & 96.92 & 85.77 \\
+Matched MLP & 94.77 & 97.21 & 97.69 & 95.38 & 87.69 \\
+SE & 95.69 & 97.52 & 95.38 & 95.38 & 84.62 \\
+No attention & 95.38 & 96.59 & 98.46 & 97.69 & 85.77 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Signer 5 is much harder for every model (about 85--88\%). The difference
+between modules on any one signer is at most about 3 points, so who the
+signer is matters much more than which attention block is used.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{mu_efficiency.pdf}
+\caption*{(a) MU accuracy vs.\ attention parameters. (b) QCA minus each other module, per signer.}
+\end{figure}
+
+Over all 1,815 MU images, QCA got 1,724 right. Most mistakes are between
+similar hand shapes: M/N (16 and 13), V$\to$W (11), A$\to$T (6).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{qca_confusion_matrix.pdf}
+\caption*{QCA confusion matrix on MU, all five test signers together.}
+\end{figure}
+
+\begin{table}[H]
+\raggedright\textbf{Kaggle, low data (frozen backbone, mean $\pm$ SD over 3 seeds):}\par\medskip
+\centering
+\begin{tabular}{lccc}
+\toprule
+Module & 1\% data & 5\% data & 10\% data \\
+\midrule
+SE & 66.17 $\pm$ 0.42 & 87.22 $\pm$ 0.88 & 91.12 $\pm$ 0.45 \\
+No attention & 64.69 $\pm$ 0.63 & 86.43 $\pm$ 0.55 & 90.19 $\pm$ 0.60 \\
+Matched MLP & 60.80 $\pm$ 1.31 & 86.39 $\pm$ 0.47 & 90.93 $\pm$ 0.24 \\
+QCA & 62.16 $\pm$ 1.16 & 86.13 $\pm$ 0.93 & 90.36 $\pm$ 0.35 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+SE is best at every size. QCA beats no attention only at 10\%, and only by
+0.17 points. QCA beats the matched MLP at 1\%, but the MLP is ahead again at
+10\%.
+
+\section*{7. What I conclude}
+
+\begin{itemize}
+  \item QCA uses about 7.5 times fewer attention parameters than SE (17,464
+        vs.\ 131,072) and does not lose accuracy on new signers.
+  \item But the quantum circuit itself does not seem to add anything. The
+        classical MLP with the same size gives the same results, so the
+        saving comes from the small 8-unit bottleneck, not from the quantum
+        part.
+  \item Limits: MU was run with one seed only, there are only 5 signers, and
+        the circuit is simulated without noise. Differences under about
+        1 point cannot be judged from this.
+\end{itemize}
+
+\section*{8. Paper so far}
+
+I have an 8-page conference draft (target limit 10 pages) with 4 figures,
+4 tables and 28 references. My supervisor has reviewed it four times, and I
+made these changes:
+
+\begin{itemize}
+  \item Presented QCA-DenseNet as the one proposed method instead of a
+        comparison of four, with three clear contributions that the results
+        section checks one by one.
+  \item Made all captions one line, put every figure and table after the
+        text that discusses it, and kept one readable confusion matrix.
+  \item Changed Limitations to Future Scope and removed everything after the
+        Conclusion.
+  \item Kept only real references from 2020 onwards, checked each one by DOI,
+        removed the only arXiv-only paper, and numbered citations in order.
+  \item Removed footnotes and personal words (I/we/our) from the paper.
+  \item Cut the Abstract to about 150 words, the Conclusion to about 120,
+        Future Scope to one sentence, and Discussion to two paragraphs.
+  \item Fixed a wrong number: the MU dataset has 2,515 images, not 2,425.
+\end{itemize}
+
+I used Claude (an AI assistant) to help draft and edit the paper text. All
+the numbers come from my experiment result files. Before submitting, I need
+to rewrite the text in my own words or disclose the AI use, as the venue
+requires.
+
+\section*{9. What is left}
+
+\begin{itemize}
+  \item Discuss the negative result with my supervisor before running
+        anything new.
+  \item Decide if I should repeat the MU runs with more seeds.
+  \item Check the licence of the MU dataset copy I used (the paper shows MU
+        images).
+  \item Pick the conference and its template, and finalise the title.
+  \item Rewrite the text in my own words or disclose the AI help, then run a
+        plagiarism check.
+  \item Possible later work, if approved: compare with ECA-Net, test the
+        circuit with noise or on real quantum hardware, look at the learned
+        attention weights, and try continuous fingerspelling.
+\end{itemize}
+
+All code, configs, results and the paper are in the project repository
+(\texttt{hybrid-qnn-sign-private}).
+
+\end{document}

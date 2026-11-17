@@ -27,8 +27,10 @@ evidence.
 - Current title: **Compact Quantum Channel Attention for Static ASL
   Recognition: A Controlled Study with Parameter-Matched Baselines**
 - Format: venue-neutral, 10-point, two-column article
-- Length: 10 pages
-- Author and date fields are intentionally blank.
+- Length: 9 pages (limit 10)
+- Authors: Ronak Bhalgami (first; corresponding author set at submission), Deep Kothadiya (SCIT,
+  co-author and guide), Nikita Bhatt (CHARUSAT, guide). Roles are given in a
+  CRediT "Author Contributions" section. Date field is intentionally blank.
 - Stage: polished draft complete; a specific venue has not been selected.
 - The paper-writing artifacts are local and excluded by `.gitignore` from the
   public code-only repository.
@@ -105,45 +107,44 @@ speedup, hardware efficiency, robustness, or state-of-the-art performance.
 - Both use 17,464 attention parameters.
 - The pilot does not justify a larger post-hoc sweep.
 
-## Required Editorial Decisions Already Applied
+## Required Editorial Decisions Already Applied (revision of 2026-10-03)
 
-- QCA is presented as the proposed compact architecture, not the
-  accuracy-best approach.
-- Figure and table captions are concise single source lines.
-- The confusing two-track protocol diagram was removed.
-- The former Limitations section is now `Future Scope`.
-- `Conclusion` is the final authored section; only the bibliography follows.
-- `\FloatBarrier` prevents figures or tables from entering or following the
-  Conclusion.
-- Supporting analysis and reproducibility details appear before Future Scope.
-- Figure 6, the evidence hierarchy, was redrawn with equal-width centered
-  boxes, consistent spacing, and straight vertical arrows.
+- Single proposed approach: **QCA-DenseNet** (DenseNet121 + QCA gate, fully
+  fine-tuned). SE, matched MLP, and no attention are reference modules only.
+- Contributions C1--C3 are listed in the Introduction and each is verified in
+  a labelled Results subsection (5.1 C1, 5.2 C2, 5.3--5.4 C3).
+- Captions are one rendered line each.
+- Every float is referenced and discussed before it appears; single-column
+  tables use `[!hb]` so they cannot jump above their discussion.
+- Former Limitations section is `Future Scope`; Conclusion is the last
+  authored section, contains no float, and is preceded by `\FloatBarrier`.
+- No first-person wording.
+- Removed figures: evaluation-risk diagram, four-way control diagram,
+  per-signer line plot, low-data learning curve, macro-F1-only table
+  (merged into Table 4). These duplicated tables or confused the flow.
 
 Current figure order:
 
-1. Evaluation risks and controls.
-2. Proposed QCA architecture.
-3. Four channel transformations, with QCA marked proposed.
-4. MU held-out-signer accuracy.
-5. Pooled confusion matrix of proposed QCA only.
-6. Kaggle low-data accuracy.
+1. Proposed QCA-DenseNet pipeline (a) and QCA gate internals (b), TikZ.
+2. Sample images of confusable letters, Kaggle vs. five MU signers
+   (`paper/scripts/plot_samples.py`). Uses MU images: confirm mirror licence.
+3. MU accuracy vs. attention parameters and paired per-signer differences
+   (`paper/scripts/plot_mu_efficiency.py`).
+4. Pooled MU confusion matrix of QCA-DenseNet only
+   (`paper/scripts/plot_qca_confusion.py`).
 
-The evidence-hierarchy figure and the four-panel confusion
-figure were removed. The old reproducibility section was
-removed. Every comparison table labels the QCA row as
-proposed. The manuscript avoids first-person pronouns.
+Current table order: 1 parameter counts; 2 MU summary with paired p-values;
+3 per-signer accuracy; 4 frozen ablation (accuracy and macro-F1).
 
 ## Citation Policy
 
-- Every cited scholarly work currently has a fresh verified lock record.
-- Seven scholarly references are dated 2020--2024.
-- Three older references are retained only as essential primary sources:
-  DenseNet, ImageNet, and SE.
-- Dataset identities are cited through official footnotes because they do not
-  have suitable DOI/arXiv records for the scholarly citation lock.
-- Never invent metadata or add a citation from memory.
-- If a citation changes, update `citation_requests.json`, regenerate
-  `citation_lock.json`, update `citation_verification.md`, and rebuild.
+- 28 references (no arXiv), all dated 2020--2026, every one Crossref/arXiv verified in
+  `citation_lock.json`; sentence-level support in `citation_requests.json`.
+- Every section, including Conclusion, carries at least one citation.
+- Dataset identities and PennyLane are given as footnote URLs.
+- Never invent metadata or add a citation from memory. After a citation
+  change, update `citation_requests.json`, rerun `verify_citations.py`, and
+  rebuild.
 
 ## Language and Originality
 
@@ -206,7 +207,7 @@ Latest attested build:
 
 - Status: passed
 - Tectonic: 0.16.9
-- Pages: 8
+- Pages: 9 (revision 3, 2026-10-03; see paper_state.json for hashes)
 - Input SHA-256:
   `229b8caa113fe3070ecbfa42b1175a01467a43be7c62dbe68108860bbbe0a8f7`
 - PDF SHA-256:
@@ -218,3 +219,68 @@ The generic camera-ready checker expects a section literally named
 `Limitations`, acknowledgments, and a venue checklist. It will report those
 items until a venue is selected. This is expected because the user explicitly
 requested `Future Scope`, blank author metadata, and a venue-neutral draft.
+
+## Style rules from the user (revision 3)
+
+- No em or en dashes in prose (use hyphens, "to", or rewrite). TikZ `--`
+  path operators are not dashes.
+- Avoid stock AI vocabulary (moreover, furthermore, crucial, pivotal,
+  landscape, leverage, robust, highlight, underscore, in summary, etc.).
+
+## Supervisor rules (revision 4, 2026-10-05)
+
+- Citations numbered in order of first appearance (`unsrtnat`), so they ascend.
+- No footnotes: datasets are cited (Kaggle via alsharif_2023_asl, MU via
+  sahoo_2022_mu); PennyLane is named without a citation.
+- No arXiv-only papers (bowles_2024_benchmark removed). 28 references.
+- Discussion (2 paragraphs), Future Scope (about 4 lines), and Conclusion
+  carry no citations.
+- Abstract and Conclusion at most 150 to 160 words.
+- MU mirror has 2,515 images in 36 classes (corrected from 2,425).
+- Supervisor rule: no AI drafting. The current text was drafted with AI
+  assistance; the author must rewrite it in their own words or disclose AI use
+  per venue policy before submission.
+
+## Turnitin review (revision 5, 2026-10-23)
+
+Reports: `reports/Paper (54).pdf` (similarity 20%), `reports/Paper (55).pdf`
+(AI 29%, 16 segments), both on the 2026-10-05 build.
+
+- Similarity: about 17 of the 20 points come from the reference list.
+  Body matches are about 3% (section roadmap, hyperparameter phrases, the
+  Kaggle dataset sentence, Figure 4 axis letters). UGC 2018 rules exclude
+  references from similarity checks: rerun with "Exclude bibliography".
+- Integrity flag "hidden text, 46 characters": white diagonal counts in
+  Figure 4. Fixed at the author's request: `plot_qca_confusion.py` now
+  draws black labels on a lighter scale (vmax doubled). The compiled PDF has
+  no near-white text objects (the 2026-10-05 build had 26).
+- Factual fixes applied: p = 0.116 now attached to the accuracy test (the
+  macro-F1 paired test gives p = 0.100 and is not reported); V/W confusion
+  explanation; "equal"/"without a loss" wording hedged; single-seed caveat in
+  Section 5.2; citation [13] removed from an unsupported "as expected" claim;
+  [4,5] moved to the LOSO claim they support; "same order as at 10%".
+- AI-writing score: the author confirmed (2026-10-23) that the institution
+  allows AI-assisted editing without disclosure, which supersedes the
+  "no AI drafting" note above. All 16 Turnitin-flagged passages were
+  rewritten (Sections 1, 2.2, 2.3, 3.1, 3.3, 5.2 to 5.4, 6, Table 3 and
+  Figure 4 captions). Numbers, citations and claims are unchanged; the
+  section roadmap paragraph was removed, 4.1 to 4.3 hyperparameter prose was
+  reworded, and the incorrect "gate can scale channels up or down" (sigmoid
+  gates lie in (0,1)) was corrected. Rerun Turnitin to measure the result.
+- Second pass with conorbronsdon/avoid-ai-writing (v3.38.0, technical
+  context): its detector scores the final prose 0/"Clean" (no issues) and
+  its preservation validator passes against the 2026-10-05 text. Fixed the
+  intro "careful studies show" (now names Raubitzek and Mallinger, with a
+  new verified support record and refreshed citation lock), a rhetorical
+  question opener in Section 6, a speculative CPU-slowdown clause, and three
+  colon-into-triple sentences.
+- Author request: do not describe the study as "signer-independent
+  evaluation" (the professors guided the protocol). Removed from the
+  keywords, the Section 2.1 title and the Section 4.2 attribution to earlier
+  studies. Do not add it back. Reference [4]'s published title keeps it.
+- Spacing: the article layout uses `\raggedbottom` plus a fixed
+  `\parskip` of 4pt, so no column is stretched to the page bottom. The C1
+  to C3 list carries `fil` glue (above it and in `itemsep`), which spreads
+  whatever space is left in its column evenly over those three gaps, so
+  page 1 stays filled after text edits. An IEEEtran conversion was tried on
+  2026-10-23 and rejected by the author in favour of this layout.

@@ -2,9 +2,13 @@
 
 ## Current Stage
 
-Supervisor revision compiled: 10 pages, 24 verified citations, QCA labeled
-as the proposed method, evidence-ladder figure and the old analysis section
-removed, single QCA confusion matrix in place of the four-panel figure.
+Supervisor revision 2 compiled (2026-10-03): 8 pages, 34 verified
+2020--2026 citations, one proposed pipeline (QCA-DenseNet) with contributions
+C1--C3 verified in labelled Results subsections, two figures and four tables,
+all captions one line, all floats placed after their first discussion,
+Future Scope before Conclusion, no float in or after Conclusion. An
+independent skeptical review was applied; overclaims about the pooled metric
+and the source of accuracy were removed.
 
 ## Completed
 

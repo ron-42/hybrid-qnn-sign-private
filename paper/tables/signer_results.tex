@@ -1,16 +1,16 @@
-\begin{table*}[t]
+\begin{table}[!hb]
 \centering
-\caption{Held-out signer accuracy for proposed QCA (\%; counts in parentheses).}
+\caption{Per-signer MU test accuracy (\%).}
 \label{tab:signers}
-\small
-\begin{tabular}{lrrrrr}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccc}
 \toprule
-Method & Signer 1 (650) & Signer 2 (645) & Signer 3 (130) & Signer 4 (130) & Signer 5 (260) \\
+Module & S1 (650) & S2 (645) & S3 (130) & S4 (130) & S5 (260) \\
 \midrule
 \textbf{QCA (proposed)} & 95.38 & 97.52 & 96.92 & 96.92 & 85.77 \\
 Matched MLP & 94.77 & 97.21 & 97.69 & 95.38 & 87.69 \\
 SE & 95.69 & 97.52 & 95.38 & 95.38 & 84.62 \\
 No attention & 95.38 & 96.59 & 98.46 & 97.69 & 85.77 \\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}}
+\end{table}

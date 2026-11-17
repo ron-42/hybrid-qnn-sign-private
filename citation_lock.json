@@ -1,14 +1,14 @@
 {
   "schema_version": "ai-research-writing/citation-lock-v1",
-  "request_sha256": "56ec2ed572c16579242c63a60f9f99a71204ee5c38eb475749fcfd238c1f2142",
+  "request_sha256": "8d323d03d677b0f24316adbae8fe0c92e4e4ecfebb6d6b5d5a92fc119e456392",
   "records": [
     {
       "key": "cerezo_2021_vqa",
       "identifier": "doi:10.1038/s42254-021-00348-9",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1038%2Fs42254-021-00348-9?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:42.863200+00:00",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs42254-021-00348-9",
+      "checked_at": "2026-10-23T07:33:46.788307+00:00",
       "metadata": {
         "title": "Variational quantum algorithms",
         "authors": [
@@ -39,8 +39,8 @@
       "identifier": "doi:10.3390/e25070992",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.3390%2Fe25070992?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:43.746155+00:00",
+      "request_url": "https://api.crossref.org/works/10.3390%2Fe25070992",
+      "checked_at": "2026-10-23T07:33:48.452014+00:00",
       "metadata": {
         "title": "On the Applicability of Quantum Machine Learning",
         "authors": [
@@ -52,7 +52,7 @@
         "type": "journal-article"
       },
       "metadata_sha256": "77ee730906c165074641a4679f2111f66f84e58dbaefd1511dfb9e9422924fcf",
-      "claim_support_sha256": "5ae6706e96748be347840471f3bab64a09d6ed55afb6d27e2442f6ef7bf486ee",
+      "claim_support_sha256": "b7305968ccfa81aacad555720d19631f4e17d98463928ce7f016e86038e36b97",
       "cross_check": null,
       "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
       "error": ""
@@ -62,8 +62,8 @@
       "identifier": "doi:10.22331/q-2020-10-09-340",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.22331%2Fq-2020-10-09-340?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:44.717729+00:00",
+      "request_url": "https://api.crossref.org/works/10.22331%2Fq-2020-10-09-340",
+      "checked_at": "2026-10-23T07:33:50.269986+00:00",
       "metadata": {
         "title": "Transfer learning in hybrid classical-quantum neural networks",
         "authors": [
@@ -88,8 +88,8 @@
       "identifier": "doi:10.1103/PhysRevA.110.012447",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1103%2FPhysRevA.110.012447?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:45.393512+00:00",
+      "request_url": "https://api.crossref.org/works/10.1103%2FPhysRevA.110.012447",
+      "checked_at": "2026-10-23T07:33:51.634870+00:00",
       "metadata": {
         "title": "Channel attention for quantum convolutional neural networks",
         "authors": [
@@ -115,8 +115,8 @@
       "identifier": "doi:10.22331/q-2020-02-06-226",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.22331%2Fq-2020-02-06-226?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:46.235620+00:00",
+      "request_url": "https://api.crossref.org/works/10.22331%2Fq-2020-02-06-226",
+      "checked_at": "2026-10-23T07:33:52.738840+00:00",
       "metadata": {
         "title": "Data re-uploading for a universal quantum classifier",
         "authors": [
@@ -140,8 +140,8 @@
       "identifier": "doi:10.1007/s00521-019-04691-y",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1007%2Fs00521-019-04691-y?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:47.110238+00:00",
+      "request_url": "https://api.crossref.org/works/10.1007%2Fs00521-019-04691-y",
+      "checked_at": "2026-10-23T07:33:53.824496+00:00",
       "metadata": {
         "title": "Deep learning-based sign language recognition system for static signs",
         "authors": [
@@ -163,8 +163,8 @@
       "identifier": "doi:10.55730/1300-0632.4078",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.55730%2F1300-0632.4078?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:47.926806+00:00",
+      "request_url": "https://api.crossref.org/works/10.55730%2F1300-0632.4078",
+      "checked_at": "2026-10-23T07:33:54.713565+00:00",
       "metadata": {
         "title": "Signer-independent sign language recognition with feature disentanglement",
         "authors": [
@@ -182,162 +182,12 @@
       "error": ""
     },
     {
-      "key": "hu_2018_se",
-      "identifier": "doi:10.1109/CVPR.2018.00745",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR.2018.00745?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:48.790110+00:00",
-      "metadata": {
-        "title": "Squeeze-and-Excitation Networks",
-        "authors": [
-          "Jie Hu",
-          "Li Shen",
-          "Gang Sun"
-        ],
-        "year": 2018,
-        "doi": "10.1109/cvpr.2018.00745",
-        "type": "proceedings-article"
-      },
-      "metadata_sha256": "1c5296444ba4a1351118185f755740da220d88471ed56606654c4d46a2f57da6",
-      "claim_support_sha256": "8c7e2b00beaa1cbdad6c51b7851f4e62c23e73dbf9cca098a3202b1fd98584bb",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "huang_2017_densenet",
-      "identifier": "doi:10.1109/CVPR.2017.243",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR.2017.243?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:49.513000+00:00",
-      "metadata": {
-        "title": "Densely Connected Convolutional Networks",
-        "authors": [
-          "Gao Huang",
-          "Zhuang Liu",
-          "Laurens Van Der Maaten",
-          "Kilian Q. Weinberger"
-        ],
-        "year": 2017,
-        "doi": "10.1109/cvpr.2017.243",
-        "type": "proceedings-article"
-      },
-      "metadata_sha256": "2333ac7ed53393059409afd4fdb97565487aedf52d0b6cceca78f0831355b5d2",
-      "claim_support_sha256": "5378c3a8a42b4a05d7d7e2eb537e679930a3a16b5fdb5b33df3d14701066a998",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "deng_2009_imagenet",
-      "identifier": "doi:10.1109/CVPR.2009.5206848",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR.2009.5206848?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:50.180237+00:00",
-      "metadata": {
-        "title": "ImageNet: A large-scale hierarchical image database",
-        "authors": [
-          "Jia Deng",
-          "Wei Dong",
-          "Richard Socher",
-          "Li-Jia Li",
-          "Kai Li",
-          "Li Fei-Fei"
-        ],
-        "year": 2009,
-        "doi": "10.1109/cvpr.2009.5206848",
-        "type": "proceedings-article"
-      },
-      "metadata_sha256": "d29276650ab2c3b61fc7c239074139bcf1c3e93740df8e11f1f0f1d086295143",
-      "claim_support_sha256": "0250b4c8acc1d3ff4bb21a560b10fc7dba3b47140876b3e2603208d87b55d2b5",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "mcclean_2018_barren",
-      "identifier": "doi:10.1038/s41467-018-07090-4",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1038%2Fs41467-018-07090-4?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:51.131509+00:00",
-      "metadata": {
-        "title": "Barren plateaus in quantum neural network training landscapes",
-        "authors": [
-          "Jarrod R. McClean",
-          "Sergio Boixo",
-          "Vadim N. Smelyanskiy",
-          "Ryan Babbush",
-          "Hartmut Neven"
-        ],
-        "year": 2018,
-        "doi": "10.1038/s41467-018-07090-4",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "0f662b8c26f39a7233c4fd1e49d35df9783f0d2d27259eb52051d8831d577936",
-      "claim_support_sha256": "35fccb776083c5a7cc6b2144166597ae97cab318d84406c28f7d19ca239aefd9",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "schuld_2019_feature",
-      "identifier": "doi:10.1103/PhysRevLett.122.040504",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1103%2FPhysRevLett.122.040504?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:51.823889+00:00",
-      "metadata": {
-        "title": "Quantum Machine Learning in Feature Hilbert Spaces",
-        "authors": [
-          "Maria Schuld",
-          "Nathan Killoran"
-        ],
-        "year": 2019,
-        "doi": "10.1103/physrevlett.122.040504",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "1e9e7aed490ae0bc5465afda2b72f3ae069eef82742ef285199bcfc00dae9331",
-      "claim_support_sha256": "cf983ddf86776c3f905ce27851b6f500e6c5f99e3e023d84a4b6e09c65074b08",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "benedetti_2019_pqc",
-      "identifier": "doi:10.1088/2058-9565/ab4eb5",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1088%2F2058-9565%2Fab4eb5?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:52.926037+00:00",
-      "metadata": {
-        "title": "Parameterized quantum circuits as machine learning models",
-        "authors": [
-          "Marcello Benedetti",
-          "Erika Lloyd",
-          "Stefan Sack",
-          "Mattia Fiorentini"
-        ],
-        "year": 2019,
-        "doi": "10.1088/2058-9565/ab4eb5",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "06c9279d288c0214dd94a6a6257cb6163f95a03b80eee1078b347408ab91affc",
-      "claim_support_sha256": "f9975db1154fe00324fdfbcfd10011d47aaff3c028cf5fd0d3ee6ef321c333de",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
       "key": "rastgoo_2021_survey",
       "identifier": "doi:10.1016/j.eswa.2020.113794",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1016%2Fj.eswa.2020.113794?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:53.854498+00:00",
+      "request_url": "https://api.crossref.org/works/10.1016%2Fj.eswa.2020.113794",
+      "checked_at": "2026-10-23T07:34:07.246662+00:00",
       "metadata": {
         "title": "Sign Language Recognition: A Deep Survey",
         "authors": [
@@ -356,83 +206,12 @@
       "error": ""
     },
     {
-      "key": "preskill_2018_nisq",
-      "identifier": "doi:10.22331/q-2018-08-06-79",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.22331%2Fq-2018-08-06-79?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:54.889761+00:00",
-      "metadata": {
-        "title": "Quantum Computing in the NISQ era and beyond",
-        "authors": [
-          "John Preskill"
-        ],
-        "year": 2018,
-        "doi": "10.22331/q-2018-08-06-79",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "6d74cea02e7ec1698e91d820607e571ab617f3c855d22309eccbbe871e0860fd",
-      "claim_support_sha256": "fd6162a15e1d38ee506adcbee6ad156edf7eff83ebc5bee11bc84a06dbf9c0a7",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "mitarai_2018_qcl",
-      "identifier": "doi:10.1103/PhysRevA.98.032309",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1103%2FPhysRevA.98.032309?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:55.656063+00:00",
-      "metadata": {
-        "title": "Quantum circuit learning",
-        "authors": [
-          "K. Mitarai",
-          "M. Negoro",
-          "M. Kitagawa",
-          "K. Fujii"
-        ],
-        "year": 2018,
-        "doi": "10.1103/physreva.98.032309",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "22120ecb255bf3d3526a3b4abd1a021cf3c90fe1f5215b0fa56bb175bbe5a211",
-      "claim_support_sha256": "93d3d9242d134f36030624e32532566f1bc240c5085c37b5786f365bca154b48",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "cong_2019_qcnn",
-      "identifier": "doi:10.1038/s41567-019-0648-8",
-      "status": "verified",
-      "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1038%2Fs41567-019-0648-8?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:56.733551+00:00",
-      "metadata": {
-        "title": "Quantum convolutional neural networks",
-        "authors": [
-          "Iris Cong",
-          "Soonwon Choi",
-          "Mikhail D. Lukin"
-        ],
-        "year": 2019,
-        "doi": "10.1038/s41567-019-0648-8",
-        "type": "journal-article"
-      },
-      "metadata_sha256": "2e0e06ad097be696d501e30ddccfd8136dddb4a1441f275a6fda33a87c8df617",
-      "claim_support_sha256": "6c801991bf5f79a6173ae07dce46a999ef711a032701b1e60701930eccd2b5c9",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
       "key": "henderson_2020_quanvolutional",
       "identifier": "doi:10.1007/s42484-020-00012-y",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1007%2Fs42484-020-00012-y?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:57.487495+00:00",
+      "request_url": "https://api.crossref.org/works/10.1007%2Fs42484-020-00012-y",
+      "checked_at": "2026-10-23T07:34:08.474711+00:00",
       "metadata": {
         "title": "Quanvolutional neural networks: powering image recognition with quantum circuits",
         "authors": [
@@ -452,214 +231,521 @@
       "error": ""
     },
     {
-      "key": "havlicek_2019_feature",
-      "identifier": "doi:10.1038/s41586-019-0980-2",
+      "key": "hu_2020_se",
+      "identifier": "doi:10.1109/TPAMI.2019.2913372",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1038%2Fs41586-019-0980-2?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:58.269686+00:00",
+      "request_url": "https://api.crossref.org/works/10.1109%2FTPAMI.2019.2913372",
+      "checked_at": "2026-10-23T07:34:10.257375+00:00",
       "metadata": {
-        "title": "Supervised learning with quantum-enhanced feature spaces",
+        "title": "Squeeze-and-Excitation Networks",
         "authors": [
-          "Vojt\u011bch Havl\u00ed\u010dek",
-          "Antonio D. C\u00f3rcoles",
-          "Kristan Temme",
-          "Aram W. Harrow",
-          "Abhinav Kandala",
-          "Jerry M. Chow",
-          "Jay M. Gambetta"
+          "Jie Hu",
+          "Li Shen",
+          "Samuel Albanie",
+          "Gang Sun",
+          "Enhua Wu"
         ],
-        "year": 2019,
-        "doi": "10.1038/s41586-019-0980-2",
+        "year": 2020,
+        "doi": "10.1109/tpami.2019.2913372",
         "type": "journal-article"
       },
-      "metadata_sha256": "c01f8cad05f62ca9d2ccc4606699b753737987d8b11f8742990626a5ce505dd1",
-      "claim_support_sha256": "35770f4aa12e8e8a72e643227e7a10c7f3f01a0ce7ea6540567fe66176fea288",
+      "metadata_sha256": "6a428412effd2adb136e5d875d03e1365cebefb02fddd732afb3ac1f66a72249",
+      "claim_support_sha256": "260401210d9ff65cf90ae2026e7b8909b0b304090c18c296cd50b558839b4ffa",
       "cross_check": null,
       "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
       "error": ""
     },
     {
-      "key": "camgoz_2018_slt",
-      "identifier": "doi:10.1109/CVPR.2018.00812",
+      "key": "huang_2022_densenet",
+      "identifier": "doi:10.1109/TPAMI.2019.2918284",
       "status": "verified",
       "provider": "crossref",
-      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR.2018.00812?mailto=research%40example.com",
-      "checked_at": "2026-09-22T19:23:59.132145+00:00",
+      "request_url": "https://api.crossref.org/works/10.1109%2FTPAMI.2019.2918284",
+      "checked_at": "2026-10-23T07:34:11.830066+00:00",
       "metadata": {
-        "title": "Neural Sign Language Translation",
+        "title": "Convolutional Networks with Dense Connectivity",
+        "authors": [
+          "Gao Huang",
+          "Zhuang Liu",
+          "Geoff Pleiss",
+          "Laurens van der Maaten",
+          "Kilian Q. Weinberger"
+        ],
+        "year": 2022,
+        "doi": "10.1109/tpami.2019.2918284",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "c3ce30641994325184d45b793e5b08ea4df4a8faef7dce9a7f9f5cff16d0b48c",
+      "claim_support_sha256": "a6c9a48de79725dec11cd9a075d98cdd301a6cf307c5be11c4ae9d619b05d563",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "cerezo_2021_barren",
+      "identifier": "doi:10.1038/s41467-021-21728-w",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs41467-021-21728-w",
+      "checked_at": "2026-10-23T07:34:13.386963+00:00",
+      "metadata": {
+        "title": "Cost function dependent barren plateaus in shallow parametrized quantum circuits",
+        "authors": [
+          "M. Cerezo",
+          "Akira Sone",
+          "Tyler Volkoff",
+          "Lukasz Cincio",
+          "Patrick J. Coles"
+        ],
+        "year": 2021,
+        "doi": "10.1038/s41467-021-21728-w",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "274f4a763810b59ae38d55f9d96623133e00aa161a10deab7ca12f2edcebb9a6",
+      "claim_support_sha256": "8e28ac6aa3c8f2a30c364529c895d2bc9c30c622173a86767cc82aaacb77b08f",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "schuld_2021_encoding",
+      "identifier": "doi:10.1103/PhysRevA.103.032430",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1103%2FPhysRevA.103.032430",
+      "checked_at": "2026-10-23T07:34:14.306622+00:00",
+      "metadata": {
+        "title": "Effect of data encoding on the expressive power of variational quantum-machine-learning models",
+        "authors": [
+          "Maria Schuld",
+          "Ryan Sweke",
+          "Johannes Jakob Meyer"
+        ],
+        "year": 2021,
+        "doi": "10.1103/physreva.103.032430",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "fb134f0e144aadda1cf1aecd9baa6c6ea4ff90738977fa8e4fce46c43bf736a7",
+      "claim_support_sha256": "e42c06b18c319121c1f269618a620c705562565425a4f3c1fb9a8b72edf75d68",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "bharti_2022_nisq",
+      "identifier": "doi:10.1103/RevModPhys.94.015004",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1103%2FRevModPhys.94.015004",
+      "checked_at": "2026-10-23T07:34:18.516354+00:00",
+      "metadata": {
+        "title": "Noisy intermediate-scale quantum algorithms",
+        "authors": [
+          "Kishor Bharti",
+          "Alba Cervera-Lierta",
+          "Thi Ha Kyaw",
+          "Tobias Haug",
+          "Sumner Alperin-Lea",
+          "Abhinav Anand",
+          "Matthias Degroote",
+          "Hermanni Heimonen",
+          "Jakob S. Kottmann",
+          "Tim Menke",
+          "Wai-Keong Mok",
+          "Sukin Sim",
+          "Leong-Chuan Kwek",
+          "Al\u00e1n Aspuru-Guzik"
+        ],
+        "year": 2022,
+        "doi": "10.1103/revmodphys.94.015004",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "9c324d187a0949347a5b39a4c85cff6d9dce35fb379c116803bee4afd0a76b8a",
+      "claim_support_sha256": "65689459cccab6a156154e013bccf17dd2ab786f421739aa7038d7b7f5c86b63",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "hur_2022_qcnn",
+      "identifier": "doi:10.1007/s42484-021-00061-x",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1007%2Fs42484-021-00061-x",
+      "checked_at": "2026-10-23T07:34:19.906247+00:00",
+      "metadata": {
+        "title": "Quantum convolutional neural network for classical data classification",
+        "authors": [
+          "Tak Hur",
+          "Leeseok Kim",
+          "Daniel K. Park"
+        ],
+        "year": 2022,
+        "doi": "10.1007/s42484-021-00061-x",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "d1e2ebe73729ff023b634a9c8b55895f4a8e0a3fce8076bbc2de227edeb47c01",
+      "claim_support_sha256": "f036616a7bf60ecd6f4ff9b1eed94b288a8241983edd1e4d1d6093cdd2135a59",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "huang_2021_data",
+      "identifier": "doi:10.1038/s41467-021-22539-9",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs41467-021-22539-9",
+      "checked_at": "2026-10-23T07:34:21.471839+00:00",
+      "metadata": {
+        "title": "Power of data in quantum machine learning",
+        "authors": [
+          "Hsin-Yuan Huang",
+          "Michael Broughton",
+          "Masoud Mohseni",
+          "Ryan Babbush",
+          "Sergio Boixo",
+          "Hartmut Neven",
+          "Jarrod R. McClean"
+        ],
+        "year": 2021,
+        "doi": "10.1038/s41467-021-22539-9",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "2896b110dc45c708bf8ce987320a9ad4e8ddcf4af8c509d7f0811c57ecd75b8c",
+      "claim_support_sha256": "ed7c08b9352bb2e9306b4cee50c32a671275293e9851c83f3d333ed5ef1bcd57",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "camgoz_2020_slt",
+      "identifier": "doi:10.1109/CVPR42600.2020.01004",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR42600.2020.01004",
+      "checked_at": "2026-10-23T07:34:23.206428+00:00",
+      "metadata": {
+        "title": "Sign Language Transformers: Joint End-to-End Sign Language Recognition and Translation",
         "authors": [
           "Necati Cihan Camgoz",
-          "Simon Hadfield",
           "Oscar Koller",
-          "Hermann Ney",
+          "Simon Hadfield",
           "Richard Bowden"
         ],
-        "year": 2018,
-        "doi": "10.1109/cvpr.2018.00812",
+        "year": 2020,
+        "doi": "10.1109/cvpr42600.2020.01004",
         "type": "proceedings-article"
       },
-      "metadata_sha256": "d91dcd2bd295ec0885c2f90010f0df8c8cf577fd5a8c40568bb6d5ab13760d60",
-      "claim_support_sha256": "2baba92c1147c0006f37c962c82f066958bf7e9323ac3999628b1e86d09f87b7",
+      "metadata_sha256": "724e88d7037b8a22310e6510bf2789cc2858c63ea84595daa4da3df3bb04ffb3",
+      "claim_support_sha256": "7ca6ae737b338620714d885cfe8b13292f407fda7cf5ba8fc536290e7291c498",
       "cross_check": null,
       "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
       "error": ""
     },
     {
-      "key": "bowles_2024_benchmark",
-      "identifier": "arxiv:2403.07059",
+      "key": "abbas_2021_power",
+      "identifier": "doi:10.1038/s43588-021-00084-1",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs43588-021-00084-1",
+      "checked_at": "2026-10-23T07:34:25.055772+00:00",
+      "metadata": {
+        "title": "The power of quantum neural networks",
+        "authors": [
+          "Amira Abbas",
+          "David Sutter",
+          "Christa Zoufal",
+          "Aurelien Lucchi",
+          "Alessio Figalli",
+          "Stefan Woerner"
+        ],
+        "year": 2021,
+        "doi": "10.1038/s43588-021-00084-1",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "3670fba837910525519ceec093c6e544f7b4540a8268c40fa9ebda23c2f51865",
+      "claim_support_sha256": "10a0134c66570f0fb64c539d4f55a82e5d214ff03c87e5e647a97fae9f316182",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "caro_2022_generalization",
+      "identifier": "doi:10.1038/s41467-022-32550-3",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs41467-022-32550-3",
+      "checked_at": "2026-10-23T07:34:26.907151+00:00",
+      "metadata": {
+        "title": "Generalization in quantum machine learning from few training data",
+        "authors": [
+          "Matthias C. Caro",
+          "Hsin-Yuan Huang",
+          "M. Cerezo",
+          "Kunal Sharma",
+          "Andrew Sornborger",
+          "Lukasz Cincio",
+          "Patrick J. Coles"
+        ],
+        "year": 2022,
+        "doi": "10.1038/s41467-022-32550-3",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "3aa1ffb8738d59f04384e223fd38a02e1ca35c89bfab32be1a0de63d6886bc8a",
+      "claim_support_sha256": "f26cafb8a7e1d1652b8c3a0bbf136af90a8316956f584e1a500a12265fbc5a98",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "schuld_2022_advantage",
+      "identifier": "doi:10.1103/PRXQuantum.3.030101",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1103%2FPRXQuantum.3.030101",
+      "checked_at": "2026-10-23T07:34:28.396203+00:00",
+      "metadata": {
+        "title": "Is Quantum Advantage the Right Goal for Quantum Machine Learning?",
+        "authors": [
+          "Maria Schuld",
+          "Nathan Killoran"
+        ],
+        "year": 2022,
+        "doi": "10.1103/prxquantum.3.030101",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "79418b127e1a0e4813dec8ca14d8a6df2a8e9527f922aeb96bb218c8d052f3d7",
+      "claim_support_sha256": "712edcc399697b3bc983c6c60764e2c92554717c7ab4e6110381204f3eaabdc6",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "wang_2021_noise",
+      "identifier": "doi:10.1038/s41467-021-27045-6",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs41467-021-27045-6",
+      "checked_at": "2026-10-23T07:34:30.265140+00:00",
+      "metadata": {
+        "title": "Noise-induced barren plateaus in variational quantum algorithms",
+        "authors": [
+          "Samson Wang",
+          "Enrico Fontana",
+          "M. Cerezo",
+          "Kunal Sharma",
+          "Akira Sone",
+          "Lukasz Cincio",
+          "Patrick J. Coles"
+        ],
+        "year": 2021,
+        "doi": "10.1038/s41467-021-27045-6",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "6b5606435f0277383fac2720158050a3d734b1923d61008cb140e06785108dc9",
+      "claim_support_sha256": "c5d07fb206c9b3c153fc1c5d07f3de176e61e092d46e534d5734035548d11599",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "wang_2020_eca",
+      "identifier": "doi:10.1109/CVPR42600.2020.01155",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1109%2FCVPR42600.2020.01155",
+      "checked_at": "2026-10-23T07:34:31.294677+00:00",
+      "metadata": {
+        "title": "ECA-Net: Efficient Channel Attention for Deep Convolutional Neural Networks",
+        "authors": [
+          "Qilong Wang",
+          "Banggu Wu",
+          "Pengfei Zhu",
+          "Peihua Li",
+          "Wangmeng Zuo",
+          "Qinghua Hu"
+        ],
+        "year": 2020,
+        "doi": "10.1109/cvpr42600.2020.01155",
+        "type": "proceedings-article"
+      },
+      "metadata_sha256": "b1b41ff25bff4b2e9d05ecee3a7bd0d0cb93ee4e8babda44f0fcf12a2de7dc8e",
+      "claim_support_sha256": "716eec23ac85f165dc3317d30ec9e2b721c75c278431145f63c68c9b4fa16b05",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "guo_2022_attention",
+      "identifier": "doi:10.1007/s41095-022-0271-y",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1007%2Fs41095-022-0271-y",
+      "checked_at": "2026-10-23T07:34:33.873555+00:00",
+      "metadata": {
+        "title": "Attention mechanisms in computer vision: A survey",
+        "authors": [
+          "Meng-Hao Guo",
+          "Tian-Xing Xu",
+          "Jiang-Jiang Liu",
+          "Zheng-Ning Liu",
+          "Peng-Tao Jiang",
+          "Tai-Jiang Mu",
+          "Song-Hai Zhang",
+          "Ralph R. Martin",
+          "Ming-Ming Cheng",
+          "Shi-Min Hu"
+        ],
+        "year": 2022,
+        "doi": "10.1007/s41095-022-0271-y",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "51382d1ca46e27d5a733ac1bc62e411674475b3c1d64b800d0319782e5ea372c",
+      "claim_support_sha256": "ba3508fdbe71bd787254d62fccd67f4e66d25c53ee9b01c6019f5f0a6811867e",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "liu_2021_hqcnn",
+      "identifier": "doi:10.1007/s11433-021-1734-3",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1007%2Fs11433-021-1734-3",
+      "checked_at": "2026-10-23T07:34:35.482925+00:00",
+      "metadata": {
+        "title": "Hybrid quantum-classical convolutional neural networks",
+        "authors": [
+          "Junhua Liu",
+          "Kwan Hui Lim",
+          "Kristin L. Wood",
+          "Wei Huang",
+          "Chu Guo",
+          "He-Liang Huang"
+        ],
+        "year": 2021,
+        "doi": "10.1007/s11433-021-1734-3",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "e7569da469899b14406caaae35005e622af490c5b919b802bbcad193f93bd33a",
+      "claim_support_sha256": "e4734c7e7451ce45ad804012d332f668bfbcc37f36e6c97122249177cae3fd2f",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "alsharif_2023_asl",
+      "identifier": "doi:10.3390/s23187970",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.3390%2Fs23187970",
+      "checked_at": "2026-10-23T07:34:37.313023+00:00",
+      "metadata": {
+        "title": "Deep Learning Technology to Recognize American Sign Language Alphabet",
+        "authors": [
+          "Bader Alsharif",
+          "Ali Salem Altaher",
+          "Ahmed Altaher",
+          "Mohammad Ilyas",
+          "Easa Alalwany"
+        ],
+        "year": 2023,
+        "doi": "10.3390/s23187970",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "0918ef19b35ecf84cf0615beb2b880bfe1a0612a88403dc940d1dfa2ef790ff2",
+      "claim_support_sha256": "ca3a8e63ac88d50066c035c30a003e0dd0624eb063ef6d24aeacbca4352b29b1",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "long_2025_hqcqcnn",
+      "identifier": "doi:10.1038/s41598-025-13417-1",
+      "status": "verified",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.1038%2Fs41598-025-13417-1",
+      "checked_at": "2026-10-23T07:34:38.562514+00:00",
+      "metadata": {
+        "title": "Hybrid quantum-classical-quantum convolutional neural networks",
+        "authors": [
+          "Changzhou Long",
+          "Meng Huang",
+          "Xiucai Ye",
+          "Yasunori Futamura",
+          "Tetsuya Sakurai"
+        ],
+        "year": 2025,
+        "doi": "10.1038/s41598-025-13417-1",
+        "type": "journal-article"
+      },
+      "metadata_sha256": "422f53333cebb5c84dbdca60d4836a9359fa3dec17bc44da70347d297f0846b5",
+      "claim_support_sha256": "73b567f8e1e9263e3d50646284cd6b36f11d97b636528caf87b5953767faf066",
+      "cross_check": null,
+      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "error": ""
+    },
+    {
+      "key": "bouthillier_2021_variance",
+      "identifier": "arxiv:2103.03098",
       "status": "verified",
       "provider": "arxiv",
-      "request_url": "https://export.arxiv.org/api/query?id_list=2403.07059",
-      "checked_at": "2026-09-22T19:23:59.202892+00:00",
+      "request_url": "https://export.arxiv.org/api/query?id_list=2103.03098",
+      "checked_at": "2026-10-23T07:34:39.043272+00:00",
       "metadata": {
-        "title": "Better than classical? The subtle art of benchmarking quantum machine learning models",
+        "title": "Accounting for Variance in Machine Learning Benchmarks",
         "authors": [
-          "Joseph Bowles",
-          "Shahnawaz Ahmed",
-          "Maria Schuld"
+          "Xavier Bouthillier",
+          "Pierre Delaunay",
+          "Mirko Bronzi",
+          "Assya Trofimov",
+          "Brennan Nichyporuk",
+          "Justin Szeto",
+          "Naz Sepah",
+          "Edward Raff",
+          "Kanika Madan",
+          "Vikram Voleti",
+          "Samira Ebrahimi Kahou",
+          "Vincent Michalski",
+          "Dmitriy Serdyuk",
+          "Tal Arbel",
+          "Chris Pal",
+          "Ga\u00ebl Varoquaux",
+          "Pascal Vincent"
         ],
-        "year": 2024,
-        "arxiv_id": "2403.07059",
+        "year": 2021,
+        "arxiv_id": "2103.03098",
         "type": "preprint"
       },
-      "metadata_sha256": "0f9ddf81cad31cba2f280b562213f7637eb3f7c3b6bd21b750434a20028d037d",
-      "claim_support_sha256": "d18e698a4a7ab79b5106e8731a66bf7c455e1a462a904991637dde241115e18e",
+      "metadata_sha256": "a344abd99855e3ba151c618c7e00c6501f740a8fd042b2aa1586f270643f1b4a",
+      "claim_support_sha256": "35e72c6ce442938b034984fc853d146dc63bcad0db4316a215fe69a595fba5e3",
       "cross_check": null,
       "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
       "error": ""
     },
     {
-      "key": "bergholm_2018_pennylane",
-      "identifier": "doi:10.48550/arXiv.1811.04968",
+      "key": "sahoo_2022_mu",
+      "identifier": "doi:10.3390/s22030706",
       "status": "verified",
-      "provider": "datacite",
-      "request_url": "https://api.datacite.org/dois/10.48550%2FarXiv.1811.04968",
-      "checked_at": "2026-09-22T19:24:00.808099+00:00",
+      "provider": "crossref",
+      "request_url": "https://api.crossref.org/works/10.3390%2Fs22030706",
+      "checked_at": "2026-10-23T07:34:40.541564+00:00",
       "metadata": {
-        "title": "PennyLane: Automatic differentiation of hybrid quantum-classical computations",
+        "title": "Real-Time Hand Gesture Recognition Using Fine-Tuned Convolutional Neural Network",
         "authors": [
-          "Bergholm, Ville",
-          "Izaac, Josh",
-          "Schuld, Maria",
-          "Gogolin, Christian",
-          "Ahmed, Shahnawaz",
-          "Ajith, Vishnu",
-          "Alam, M. Sohaib",
-          "Alonso-Linaje, Guillermo",
-          "AkashNarayanan, B.",
-          "Asadi, Ali",
-          "Arrazola, Juan Miguel",
-          "Azad, Utkarsh",
-          "Banning, Sam",
-          "Blank, Carsten",
-          "Bromley, Thomas R",
-          "Cordier, Benjamin A.",
-          "Ceroni, Jack",
-          "Delgado, Alain",
-          "Di Matteo, Olivia",
-          "Dusko, Amintor",
-          "Garg, Tanya",
-          "Guala, Diego",
-          "Hayes, Anthony",
-          "Hill, Ryan",
-          "Ijaz, Aroosa",
-          "Isacsson, Theodor",
-          "Ittah, David",
-          "Jahangiri, Soran",
-          "Jain, Prateek",
-          "Jiang, Edward",
-          "Khandelwal, Ankit",
-          "Kottmann, Korbinian",
-          "Lang, Robert A.",
-          "Lee, Christina",
-          "Loke, Thomas",
-          "Lowe, Angus",
-          "McKiernan, Keri",
-          "Meyer, Johannes Jakob",
-          "Monta\u00f1ez-Barrera, J. A.",
-          "Moyard, Romain",
-          "Niu, Zeyue",
-          "O'Riordan, Lee James",
-          "Oud, Steven",
-          "Panigrahi, Ashish",
-          "Park, Chae-Yeun",
-          "Polatajko, Daniel",
-          "Quesada, Nicol\u00e1s",
-          "Roberts, Chase",
-          "S\u00e1, Nahum",
-          "Schoch, Isidor",
-          "Shi, Borun",
-          "Shu, Shuli",
-          "Sim, Sukin",
-          "Singh, Arshpreet",
-          "Strandberg, Ingrid",
-          "Soni, Jay",
-          "Sz\u00e1va, Antal",
-          "Thabet, Slimane",
-          "Vargas-Hern\u00e1ndez, Rodrigo A.",
-          "Vincent, Trevor",
-          "Vitucci, Nicola",
-          "Weber, Maurice",
-          "Wierichs, David",
-          "Wiersema, Roeland",
-          "Willmann, Moritz",
-          "Wong, Vincent",
-          "Zhang, Shaoming",
-          "Killoran, Nathan"
+          "Jaya Prakash Sahoo",
+          "Allam Jaya Prakash",
+          "Pawe\u0142 P\u0142awiak",
+          "Saunak Samantray"
         ],
-        "year": 2018,
-        "doi": "10.48550/arxiv.1811.04968",
-        "type": "Preprint"
+        "year": 2022,
+        "doi": "10.3390/s22030706",
+        "type": "journal-article"
       },
-      "metadata_sha256": "f7d0003008c05fa0c3c9646454d28eaf515a6482ea92d1f274fedbd5b2e0cde9",
-      "claim_support_sha256": "4f0e39487954c8e5ad57eba5a5d0fbc80ba75db196e9d1fa89381a9ffb481404",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "loshchilov_2019_adamw",
-      "identifier": "doi:10.48550/arXiv.1711.05101",
-      "status": "verified",
-      "provider": "datacite",
-      "request_url": "https://api.datacite.org/dois/10.48550%2FarXiv.1711.05101",
-      "checked_at": "2026-09-22T19:24:02.096583+00:00",
-      "metadata": {
-        "title": "Decoupled Weight Decay Regularization",
-        "authors": [
-          "Loshchilov, Ilya",
-          "Hutter, Frank"
-        ],
-        "year": 2017,
-        "doi": "10.48550/arxiv.1711.05101",
-        "type": "Preprint"
-      },
-      "metadata_sha256": "7ae75c572f387846b3110a319b447f1358851c20d244998ce5f1bd0ab77d7b95",
-      "claim_support_sha256": "406a03553db384f8dd79c5b6571cdfbbc0baaa02c402c8f9525bcc00eb769542",
-      "cross_check": null,
-      "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
-      "error": ""
-    },
-    {
-      "key": "loshchilov_2017_sgdr",
-      "identifier": "doi:10.48550/arXiv.1608.03983",
-      "status": "verified",
-      "provider": "datacite",
-      "request_url": "https://api.datacite.org/dois/10.48550%2FarXiv.1608.03983",
-      "checked_at": "2026-09-22T19:24:03.425463+00:00",
-      "metadata": {
-        "title": "SGDR: Stochastic Gradient Descent with Warm Restarts",
-        "authors": [
-          "Loshchilov, Ilya",
-          "Hutter, Frank"
-        ],
-        "year": 2016,
-        "doi": "10.48550/arxiv.1608.03983",
-        "type": "Preprint"
-      },
-      "metadata_sha256": "235c5abfad8860dd3b40f154ffccd27e74cc5ab46bcf7c789a56a348196603c6",
-      "claim_support_sha256": "1f8f0d009e223e60be078d10c8334abb140a76e6fc695b0ec9fa106b31e99919",
+      "metadata_sha256": "21b8c9696a25baf2284b87775f478010228656e30168330e51cbb26437fd74f7",
+      "claim_support_sha256": "cf2784efcc6f5ea273daedfdcfbf6a8c5cfe9d34051ef6d7cd72744b38be71f5",
       "cross_check": null,
       "cross_check_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
       "error": ""
